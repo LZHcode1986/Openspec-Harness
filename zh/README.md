@@ -1,0 +1,87 @@
+# 教你的 AI 优化 OpenSpec 流程
+
+本仓库是一套用于根据项目约束个性化 OpenSpec 的方法论、校验文档和迁移资产。
+
+英文版入口：[`en/README.md`](en/README.md)
+
+原版 OpenSpec：<https://github.com/Fission-AI/OpenSpec>
+
+使用本仓库前，必须先完成 OpenSpec 的基础配置。
+
+## 这是什么
+
+- 一套面向具体项目定制 OpenSpec 的方法论
+- 一组用于校验 OpenSpec 生成文档和归档准确性的文档
+- 一套可迁移的 schema 和模板骨架
+- 一份教 AI 按项目约束工作的说明
+
+## 这个仓库解决什么问题
+
+解决原版 OpenSpec 工作流程中约束力不够，导致项目开发漂移的问题，例如：
+- `propose` 阶段自动生成文档时，容易出现文档遗漏
+- `tasks.md` 颗粒度不足，执行任务时容易出现猜测、幻觉、漂移
+- `archive` 阶段自动同步 specs 时，容易偏离主规范或重复写规范
+
+## 比默认 OpenSpec 多了什么
+
+- 更完整的项目上下文先行配置，先定义边界、权威来源、核心对象、状态机
+- 更明确的 schema 固化，把项目约束写进模板和生成结构
+- 更统一的质量门禁，把 proposal 是否可进入 apply 的判断集中起来
+- 更明确的 Active Change 规则，要求实施中新认知回写到文档
+- 更严格的归档检查，防止主 spec 退化成变更残留
+- 更清晰的 proposal / design / tasks 分工，让每一层各自承担职责
+- 可选接入 TDD 工作流程，适配更强的实施约束
+
+## 适合谁
+
+- 认可原版 OpenSpec 的轻量化、自动化的规范开发工作流程，但被开发过程，对 Agent 约束力不够，项目偏离问题困扰的用户
+- 有明确边界、权威来源、核心对象、状态机的项目
+- 新的开发项目，已经有明确的技术方案，想用 OpenSpec 的 SDD 方式协助开发，但又不知道怎么做 OpenSpec 配置的用户
+- 希望 AI 能帮忙整理项目规范的用户
+
+## 不适合谁
+
+- 不想配置 OpenSpec 的用户
+- 只需要一句话就让 AI 明白并开始实施的项目
+- 不想维护配置、schema、门禁文档，只想直接开干的用户
+- 不希望 AI 按项目规则工作，只希望它自由生成的用户
+
+## AI 怎么用
+
+以 Codex 为例：
+
+1. 把整份 [`zh/openspec根据项目个性化方法论.md`](zh/openspec根据项目个性化方法论.md) 交给 Agent。
+2. 选择 `GPT-5.4`。
+3. 让 Agent 先列出 `todo list`，再按顺序逐项执行。
+4. 执行时优先遵守仓库里的权威文档。
+5. 先处理项目上下文、`config`、`schema`、门禁和工作协议，再推进后续改造。
+6. 信息不清时先补齐，不要猜。
+
+## 建议阅读顺序
+
+1. 先读这份 `README.md`
+2. 再读 `zh/仓库导览.md`
+3. 再读 `zh/openspec根据项目个性化方法论.md`
+4. 再读 `zh/openspec 资产迁移/README.md`
+5. 再读三个门禁文档
+6. 需要对比时再看英文对比页
+
+## 详细内容
+
+| 类别 | 中文入口 | 用途 |
+| --- | --- | --- |
+| 仓库导览 | [zh/仓库导览.md](zh/仓库导览.md) | 阅读顺序和导航 |
+| 方法论主文档 | [zh/openspec根据项目个性化方法论.md](zh/openspec根据项目个性化方法论.md) | 核心方法说明 |
+| 迁移包说明 | [zh/openspec 资产迁移/README.md](zh/openspec 资产迁移/README.md) | 迁移资产怎么用 |
+| 质量门禁 | [zh/openspec 资产迁移/QUALITY-GATE.md](zh/openspec 资产迁移/QUALITY-GATE.md) | 提案就绪检查 |
+| 工作协议 | [zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md](zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md) | 变更工作规则 |
+| 归档清单 | [zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md](zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md) | 归档后正规化检查 |
+| schema 示例 | [zh/openspec 资产迁移/schemas/project-schema/README.md](zh/openspec 资产迁移/schemas/project-schema/README.md) | 项目 schema 骨架 |
+| propose 改造说明 | [zh/openspec 资产迁移/propose-改造思路.md](zh/openspec 资产迁移/propose-改造思路.md) | 加强提案流程 |
+| apply 改造说明 | [zh/openspec 资产迁移/apply-改造思路.md](zh/openspec 资产迁移/apply-改造思路.md) | 加强实施流程 |
+| TDD 接入说明 | [zh/openspec 资产迁移/TDD-apply接入说明.md](zh/openspec 资产迁移/TDD-apply接入说明.md) | 需要时接入 TDD |
+| 中英对比页 | [en/OpenSpec-vs-This-Workflow.md](en/OpenSpec-vs-This-Workflow.md) | 和原版 OpenSpec 的差异 |
+
+## 许可
+
+[MIT](LICENSE)
