@@ -157,6 +157,8 @@ schema 的职责：
 
 不要把 gate 做成 propose 之外的平行流程。
 
+这一步只有在目标项目已经按 `openspec 资产迁移/propose-改造思路.md` 改造了 `propose` 技能或命令流程后，才算真正完成。
+
 建议在 propose 内部固定执行顺序：
 
 1. source decomposition
@@ -167,6 +169,11 @@ schema 的职责：
 6. final readiness gate
 
 这样可以避免“文档生成完成了，但仍然没有真正放行判断”的情况。
+
+迁移规则：
+
+- `propose-改造思路.md` 是必接入资产，不是方法论补充文档
+- 如果还没把这份规则接进目标项目的 `propose` 流程，就不能宣称迁移完成
 
 ### 第六步：恢复 active change 驱动
 
@@ -393,14 +400,15 @@ archive 前建议确认：
 
 ## 8. 可以直接迁移到其他项目的最小组合
 
-如果要把当前这套做法迁移到别的项目，建议最少复制这 6 类资产：
+如果要把当前这套做法迁移到别的项目，建议最少复制这 7 类资产：
 
 1. `openspec/config.yaml` 的写法框架
 2. `openspec/schemas/<project-schema>/`
 3. `openspec/QUALITY-GATE.md`
 4. `openspec/CHANGE-WORKING-AGREEMENT.md`
 5. `openspec/ARCHIVE-CHECKLIST.md`
-6. `openspec-propose` 的流程改造思路
+6. `propose-改造思路.md`
+7. `openspec-propose` 的流程改造落地
 
 迁移时不要直接复制业务内容，只复制方法：
 
@@ -409,6 +417,15 @@ archive 前建议确认：
 - schema 结构
 - tasks 分解方式
 - archive 规则
+
+另外必须记录一条显式决策：
+
+- 目标项目是否要按 `apply-改造思路.md` 改造 `apply` 技能或命令流程
+
+规则是：
+
+- Agent 不能自己把 `apply-改造思路.md` 视为默认跳过项
+- 如果用户目标是 1:1 复刻本仓库资产，则默认需要一并接入
 
 ## 9. 推荐迁移步骤
 
@@ -419,8 +436,9 @@ archive 前建议确认：
 3. 再落 `QUALITY-GATE.md`
 4. 再落 `CHANGE-WORKING-AGREEMENT.md`
 5. 再落 `ARCHIVE-CHECKLIST.md`
-6. 再改 propose 流程
-7. 最后再做主 spec 正规化
+6. 再按 `propose-改造思路.md` 改造 propose 流程
+7. 再显式询问用户，是否还要按 `apply-改造思路.md` 改造 apply 流程
+8. 最后再做主 spec 正规化
 
 不要一开始就先改 tasks 模板。
 

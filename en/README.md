@@ -53,14 +53,21 @@ The common failure modes are:
 
 Tell the agent: "Configure this repository for me: https://github.com/LZHcode1986/Openspec-Harness".
 
+When adapting this workflow to another project:
+
+- Treat `openspec-migration-pack/propose-redesign.md` as a required workflow asset, not optional notes
+- Explicitly ask the user whether the target project should also adopt `openspec-migration-pack/apply-redesign.md`
+- If the goal is to reproduce this repository 1:1, include both redesign documents
+
 ## Recommended reading order
 
 1. Read this `README.md` first.
 2. Then read [`Repository-Guide.md`](Repository-Guide.md).
 3. Then read [`OpenSpec-Workflow-Customization-Methodology.md`](OpenSpec-Workflow-Customization-Methodology.md).
 4. Then read [`openspec-migration-pack/README.md`](openspec-migration-pack/README.md).
-5. Then read the three gate documents.
-6. Read the comparison page when you want a direct comparison with stock OpenSpec.
+5. Then read the three gate documents and `propose-redesign.md`.
+6. Then make an explicit decision on `apply-redesign.md`; if you want a 1:1 reproduction, read it as a required asset.
+7. Read the comparison page when you want a direct comparison with stock OpenSpec.
 
 ## Detailed contents
 
@@ -73,8 +80,8 @@ Tell the agent: "Configure this repository for me: https://github.com/LZHcode198
 | Working agreement | [openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md](openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md) | Change discipline |
 | Archive checklist | [openspec-migration-pack/ARCHIVE-CHECKLIST.md](openspec-migration-pack/ARCHIVE-CHECKLIST.md) | Post-archive normalization |
 | Schema example | [openspec-migration-pack/schemas/project-schema/README.md](openspec-migration-pack/schemas/project-schema/README.md) | Project schema skeleton |
-| Propose redesign notes | [openspec-migration-pack/propose-redesign.md](openspec-migration-pack/propose-redesign.md) | Proposal hardening |
-| Apply redesign notes | [openspec-migration-pack/apply-redesign.md](openspec-migration-pack/apply-redesign.md) | Apply hardening |
+| Propose redesign notes | [openspec-migration-pack/propose-redesign.md](openspec-migration-pack/propose-redesign.md) | Required workflow asset for `propose` hardening |
+| Apply redesign notes | [openspec-migration-pack/apply-redesign.md](openspec-migration-pack/apply-redesign.md) | Explicit migration decision for `apply` hardening |
 | TDD integration | [openspec-migration-pack/TDD-apply-integration.md](openspec-migration-pack/TDD-apply-integration.md) | Optional implementation gate |
 | Comparison page | [OpenSpec-vs-This-Workflow.md](OpenSpec-vs-This-Workflow.md) | Difference from stock OpenSpec |
 

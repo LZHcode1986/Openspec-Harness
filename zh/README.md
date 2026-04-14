@@ -50,14 +50,21 @@
 
 告诉Agent “帮我配置这个仓库 https://github.com/LZHcode1986/Openspec-Harness”。
 
+如果是把这套流程迁移到别的项目：
+
+- 必须把 `zh/openspec 资产迁移/propose-改造思路.md` 当成必接入资产，而不是补充说明
+- 必须显式询问用户，目标项目是否还要接入 `zh/openspec 资产迁移/apply-改造思路.md`
+- 如果目标是 1:1 复刻本仓库资产，则两份改造文档都要接入
+
 ## 建议阅读顺序
 
 1. 先读这份 `README.md`
 2. 再读 `zh/仓库导览.md`
 3. 再读 `zh/openspec根据项目个性化方法论.md`
 4. 再读 `zh/openspec 资产迁移/README.md`
-5. 再读三个门禁文档
-6. 需要对比时再看英文对比页
+5. 再读三个门禁文档和 `propose-改造思路.md`
+6. 再对 `apply-改造思路.md` 做显式决策；如果要 1:1 复刻，则必须接入
+7. 需要对比时再看英文对比页
 
 ## 详细内容
 
@@ -70,8 +77,8 @@
 | 工作协议 | [zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md](zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md) | 变更工作规则 |
 | 归档清单 | [zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md](zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md) | 归档后正规化检查 |
 | schema 示例 | [zh/openspec 资产迁移/schemas/project-schema/README.md](zh/openspec 资产迁移/schemas/project-schema/README.md) | 项目 schema 骨架 |
-| propose 改造说明 | [zh/openspec 资产迁移/propose-改造思路.md](zh/openspec 资产迁移/propose-改造思路.md) | 加强提案流程 |
-| apply 改造说明 | [zh/openspec 资产迁移/apply-改造思路.md](zh/openspec 资产迁移/apply-改造思路.md) | 加强实施流程 |
+| propose 改造说明 | [zh/openspec 资产迁移/propose-改造思路.md](zh/openspec 资产迁移/propose-改造思路.md) | `propose` 技能/流程的必接入资产 |
+| apply 改造说明 | [zh/openspec 资产迁移/apply-改造思路.md](zh/openspec 资产迁移/apply-改造思路.md) | `apply` 技能/流程的显式决策资产 |
 | TDD 接入说明 | [zh/openspec 资产迁移/TDD-apply接入说明.md](zh/openspec 资产迁移/TDD-apply接入说明.md) | 需要时接入 TDD |
 | 中英对比页 | [en/OpenSpec-vs-This-Workflow.md](en/OpenSpec-vs-This-Workflow.md) | 和原版 OpenSpec 的差异 |
 
