@@ -58,8 +58,7 @@ artifacts:
     instruction: >
       生成任务清单，将实施工作拆成可验证步骤。
 
-      任务必须遵循 OpenSpec x spec-kit 融合结构：
-      Setup -> Foundational / Blocking -> Slice A -> Slice B -> Polish / Cross-Cutting。
+            Setup -> Foundational / Blocking -> Slice A -> Slice B -> Polish / Cross-Cutting。
 
       任务必须包含：
       - MVP 范围

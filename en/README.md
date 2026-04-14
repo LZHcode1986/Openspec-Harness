@@ -51,14 +51,7 @@ The common failure modes are:
 
 ## How AI should use this repo
 
-Using Codex as an example:
-
-1. Give the full [`OpenSpec-Workflow-Customization-Methodology.md`](OpenSpec-Workflow-Customization-Methodology.md) file to the agent.
-2. Select `GPT-5.4`.
-3. Tell the agent to first list a `todo list`, then execute each item in order.
-4. During execution, follow the repository's authoritative documents first.
-5. Handle project context, `config`, `schema`, gates, and working agreement before moving on to later changes.
-6. If the project facts are unclear, fill them in first instead of guessing.
+Tell the agent: "Configure this repository for me: https://github.com/LZHcode1986/Openspec-Harness".
 
 ## Recommended reading order
 

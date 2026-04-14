@@ -48,14 +48,7 @@
 
 ## AI 怎么用
 
-以 Codex 为例：
-
-1. 把整份 [`zh/openspec根据项目个性化方法论.md`](zh/openspec根据项目个性化方法论.md) 交给 Agent。
-2. 选择 `GPT-5.4`。
-3. 让 Agent 先列出 `todo list`，再按顺序逐项执行。
-4. 执行时优先遵守仓库里的权威文档。
-5. 先处理项目上下文、`config`、`schema`、门禁和工作协议，再推进后续改造。
-6. 信息不清时先补齐，不要猜。
+告诉Agent “帮我配置这个仓库 https://github.com/LZHcode1986/Openspec-Harness”。
 
 ## 建议阅读顺序
 
