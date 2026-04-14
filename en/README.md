@@ -2,7 +2,7 @@
 
 This repository is a methodology pack for customizing OpenSpec around project constraints.
 
-Chinese version: [`../zh/README.md`](../zh/README.md)
+中文页面: [`../zh/README.md`](../zh/README.md)
 
 Upstream OpenSpec: <https://github.com/Fission-AI/OpenSpec>
 
