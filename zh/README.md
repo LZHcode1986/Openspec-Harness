@@ -52,10 +52,10 @@
 
 如果是把这套流程迁移到别的项目：
 
+- 开始配置前，必须先询问用户，项目是否需要 `test-driven-development`
 - 必须用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill
-- 必须询问用户，项目是否需要 `test-driven-development`
 - 只有用户确认需要 `test-driven-development` 后，才能继续配置 `skills/openspec-apply-change/SKILL.md`
-- 配置完 `apply` skill 后，必须再次询问用户，是否把 `skills/test-driven-development/SKILL.md` 安装到 OpenSpec skills 同目录
+- 如果用户确认需要 `test-driven-development`，Agent 必须检查目标项目是否已有该 skill；如果没有，则帮助用户配置到 OpenSpec skills 同目录
 
 ## 建议阅读顺序
 
@@ -63,10 +63,11 @@
 2. 再读 `zh/仓库导览.md`
 3. 再读 `zh/openspec根据项目个性化方法论.md`
 4. 再读 `zh/openspec 资产迁移/README.md`
-5. 再读 `skills/README.md` 和 `skills/openspec-propose/SKILL.md`
-6. 再读三个门禁文档、schema 和 `config.yaml.example`
-7. 如果用户选择启用 `test-driven-development`，再读 `skills/openspec-apply-change/SKILL.md`
-8. 需要对比时再看英文对比页
+5. 再先确认用户是否启用 `test-driven-development`
+6. 再读 `skills/README.md` 和 `skills/openspec-propose/SKILL.md`
+7. 再读三个门禁文档、schema 和 `config.yaml.example`
+8. 如果用户选择启用 `test-driven-development`，再读 `skills/openspec-apply-change/SKILL.md` 和 `skills/test-driven-development/SKILL.md`
+9. 需要对比时再看英文对比页
 
 ## 详细内容
 
@@ -82,7 +83,7 @@
 | Skills 导览 | [skills/README.md](../skills/README.md) | skill 角色与配置顺序 |
 | propose skill | [skills/openspec-propose/SKILL.md](../skills/openspec-propose/SKILL.md) | `propose` 的主迁移源资产 |
 | apply skill | [skills/openspec-apply-change/SKILL.md](../skills/openspec-apply-change/SKILL.md) | 仅在启用 `test-driven-development` 后接入 |
-| test-driven-development skill | [skills/test-driven-development/SKILL.md](../skills/test-driven-development/SKILL.md) | 用户确认后再安装到 OpenSpec skills 目录 |
+| test-driven-development skill | [skills/test-driven-development/SKILL.md](../skills/test-driven-development/SKILL.md) | 启用 TDD 时由 Agent 检查是否缺失，缺失则补齐 |
 | propose 改造说明 | [zh/openspec 资产迁移/propose-改造思路.md](zh/openspec 资产迁移/propose-改造思路.md) | 设计说明，不再作为主迁移入口 |
 | apply 改造说明 | [zh/openspec 资产迁移/apply-改造思路.md](zh/openspec 资产迁移/apply-改造思路.md) | 设计说明，不再作为主迁移入口 |
 | TDD 接入说明 | [zh/openspec 资产迁移/TDD-apply接入说明.md](zh/openspec 资产迁移/TDD-apply接入说明.md) | 仅在启用 TDD 后参考 |

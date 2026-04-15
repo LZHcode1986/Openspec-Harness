@@ -277,15 +277,16 @@ If you want the smallest useful version of this methodology, keep only:
 - `skills/openspec-propose/SKILL.md`
 - `skills/README.md`
 
-Also record two explicit decisions:
+Also record one explicit decision and perform one explicit check:
 
 - whether the target project enables `test-driven-development`
-- if enabled, whether `skills/test-driven-development/SKILL.md` should also be installed into the OpenSpec skills directory
+- if enabled, whether the target project already has `skills/test-driven-development/SKILL.md`; if not, install it into the OpenSpec skills directory
 
 Rule:
 
 - the agent must ask the user before enabling the TDD-specific `apply` setup
 - only after the user enables `test-driven-development` may the agent replace the target project's `apply` skill and write TDD-first rules into config/schema
+- once TDD is enabled, the agent must check for the `test-driven-development` skill and help configure it if missing
 
 That is enough to make OpenSpec project-specific without turning it into a heavyweight system.
 
