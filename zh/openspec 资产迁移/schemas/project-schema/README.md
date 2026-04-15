@@ -10,7 +10,7 @@
 - `templates/tasks.md`：任务模板
 
 补充说明：
-- 如果项目要求在实施阶段强制执行 `tdd-workflow`，把入口约束写进 `apply.instruction`，不要把完整 TDD 流程压进 `propose` 或 `tasks` 模板正文。
+- 把默认的 `test-driven-development` 入口约束写进 `apply.instruction`，不要把完整 TDD 流程压进 `propose` 或 `tasks` 模板正文。
 
 迁移原则：
 - 保留结构，不复制本项目业务名词

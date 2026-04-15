@@ -10,23 +10,23 @@
   - Agent 必须用它覆盖用户原有的 `propose` skill
 
 - `skills/openspec-apply-change/SKILL.md`
-  - `apply` 的条件实现
-  - 只有在用户确认项目需要 `test-driven-development` 后，Agent 才能用它覆盖用户原有的 `apply` skill
+  - `apply` 的实施实现
+  - Agent 必须用它覆盖用户原有的 `apply` skill，并在进入任务执行前显性先走 `test-driven-development`
 
 - `skills/test-driven-development/SKILL.md`
   - `test-driven-development` 的参考实现
-  - 只有在用户确认项目需要 `test-driven-development` 后，Agent 才检查目标项目是否已有该 skill
+  - 默认实施约束
+  - Agent 必须检查目标项目是否已有该 skill
   - 如果目标项目没有该 skill，Agent 必须帮助用户把它配置到 OpenSpec skills 目录
 
 ## 标准配置顺序
 
-1. 开始配置前，先询问用户，项目是否需要 `test-driven-development`。
+1. 开始配置前，默认按 `test-driven-development` 处理，不再询问是否需要。
 2. 再迁移 `config.yaml.example`、schema 和三个 gate 文档。
 3. 用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill。
-4. 如果用户不需要 `test-driven-development`，则停止在这里，不配置 `apply` skill，也不配置 `test-driven-development` skill。
-5. 如果用户需要，则用 `skills/openspec-apply-change/SKILL.md` 覆盖目标项目原有的 `apply` skill。
-6. 同时修改 `config.yaml` 和 schema，把代码变更前默认要求 `test-driven-development` 的规则写入项目配置。
-7. 然后检查目标项目是否已有 `test-driven-development` skill；如果没有，则帮助用户把 `skills/test-driven-development/SKILL.md` 配置到 OpenSpec skills 目录。
+4. 用 `skills/openspec-apply-change/SKILL.md` 覆盖目标项目原有的 `apply` skill。
+5. 同时修改 `config.yaml` 和 schema，把代码变更前默认要求 `test-driven-development` 的规则写入项目配置。
+6. 然后检查目标项目是否已有 `test-driven-development` skill；如果没有，则帮助用户把 `skills/test-driven-development/SKILL.md` 配置到 OpenSpec skills 目录。
 
 ## 说明
 

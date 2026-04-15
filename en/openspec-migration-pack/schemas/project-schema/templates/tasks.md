@@ -24,7 +24,7 @@
 
 ### Implementation Constraints
 
-- When entering `apply`, if the project requires `tdd-workflow`, execute that workflow's Step 0-7 first.
+- When entering `apply`, execute `test-driven-development` first and follow `RED -> GREEN -> REFACTOR`.
 - `tasks.md` is only for scope breakdown and progress tracking; do not repeat the full TDD details here.
 
 ## 1. Setup

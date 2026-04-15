@@ -15,7 +15,7 @@ This is a reusable OpenSpec schema skeleton for project-specific adaptation.
 - Keep the structure, but replace project-specific names.
 - Put project-specific constraints into `schema.yaml`.
 - Use the templates to preserve the required artifact shape.
-- If the project requires TDD during implementation, encode that requirement in `apply.instruction` instead of stuffing the full TDD flow into the proposal or task body.
+- Encode the default `test-driven-development` requirement in `apply.instruction` instead of stuffing the full TDD flow into the proposal or task body.
 
 ## Migration principles
 

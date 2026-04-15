@@ -33,7 +33,7 @@ The common failure modes are:
 - Active Change rules require implementation discoveries to be written back into documents
 - Archive checks prevent the main spec from degrading into leftover change deltas
 - Proposal, design, and tasks each have a clearer responsibility
-- TDD can be connected when the project needs stronger implementation discipline
+- TDD is the default implementation discipline
 
 ## Who it is for
 
@@ -55,10 +55,9 @@ Tell the agent: "Configure this repository for me: https://github.com/LZHcode198
 
 When adapting this workflow to another project:
 
-- Ask the user whether the project requires `test-driven-development` before starting any configuration work
 - Replace the target project's existing `propose` skill with `skills/openspec-propose/SKILL.md`
-- Only if the user says yes, replace the target project's `apply` skill with `skills/openspec-apply-change/SKILL.md`
-- If the user says yes, the agent must check whether the target project already has `test-driven-development`; if not, help configure `skills/test-driven-development/SKILL.md` into the OpenSpec skills directory
+- Replace the target project's `apply` skill with `skills/openspec-apply-change/SKILL.md`
+- Check whether the target project already has `test-driven-development`; if not, help configure `skills/test-driven-development/SKILL.md` into the OpenSpec skills directory
 
 ## Recommended reading order
 
@@ -66,11 +65,9 @@ When adapting this workflow to another project:
 2. Then read [`en/Repository-Guide.md`](en/Repository-Guide.md).
 3. Then read [`en/OpenSpec-Workflow-Customization-Methodology.md`](en/OpenSpec-Workflow-Customization-Methodology.md).
 4. Then read [`en/openspec-migration-pack/README.md`](en/openspec-migration-pack/README.md).
-5. Then confirm whether the user enables `test-driven-development`.
-6. Then read [`skills/README.md`](skills/README.md) and [`skills/openspec-propose/SKILL.md`](skills/openspec-propose/SKILL.md).
-7. Then read the three gate documents, schema, and `config.yaml.example`.
-8. If the user enables `test-driven-development`, then read [`skills/openspec-apply-change/SKILL.md`](skills/openspec-apply-change/SKILL.md) and [`skills/test-driven-development/SKILL.md`](skills/test-driven-development/SKILL.md).
-9. Read the comparison page when you want a direct comparison with stock OpenSpec.
+5. Then read [`skills/README.md`](skills/README.md) and [`skills/openspec-propose/SKILL.md`](skills/openspec-propose/SKILL.md).
+6. Then read the three gate documents, schema, `config.yaml.example`, [`skills/openspec-apply-change/SKILL.md`](skills/openspec-apply-change/SKILL.md), and [`skills/test-driven-development/SKILL.md`](skills/test-driven-development/SKILL.md).
+7. Read the comparison page when you want a direct comparison with stock OpenSpec.
 
 ## Detailed contents
 
@@ -85,11 +82,11 @@ When adapting this workflow to another project:
 | Schema example | [en/openspec-migration-pack/schemas/project-schema/README.md](en/openspec-migration-pack/schemas/project-schema/README.md) | Project schema skeleton |
 | Skills guide | [skills/README.md](skills/README.md) | Skill roles and configuration order |
 | Propose skill | [skills/openspec-propose/SKILL.md](skills/openspec-propose/SKILL.md) | Primary migration source for `propose` |
-| Apply skill | [skills/openspec-apply-change/SKILL.md](skills/openspec-apply-change/SKILL.md) | Only adopt after TDD is enabled |
-| Test-driven-development skill | [skills/test-driven-development/SKILL.md](skills/test-driven-development/SKILL.md) | When TDD is enabled, check whether the target project already has it; if not, configure it |
+| Apply skill | [skills/openspec-apply-change/SKILL.md](skills/openspec-apply-change/SKILL.md) | Apply enters TDD first, then implementation |
+| Test-driven-development skill | [skills/test-driven-development/SKILL.md](skills/test-driven-development/SKILL.md) | Default implementation discipline; check whether the target project already has it and configure it if missing |
 | Propose redesign notes | [en/openspec-migration-pack/propose-redesign.md](en/openspec-migration-pack/propose-redesign.md) | Design notes, not the main migration entry anymore |
 | Apply redesign notes | [en/openspec-migration-pack/apply-redesign.md](en/openspec-migration-pack/apply-redesign.md) | Design notes, not the main migration entry anymore |
-| TDD integration | [en/openspec-migration-pack/TDD-apply-integration.md](en/openspec-migration-pack/TDD-apply-integration.md) | Reference only after TDD is enabled |
+| TDD integration | [en/openspec-migration-pack/TDD-apply-integration.md](en/openspec-migration-pack/TDD-apply-integration.md) | Reference for apply-first-TDD flow |
 | Comparison page | [en/OpenSpec-vs-This-Workflow.md](en/OpenSpec-vs-This-Workflow.md) | Difference from stock OpenSpec |
 
 ## License

@@ -5,13 +5,13 @@ This document explains how to upgrade OpenSpec `apply` from "implement tasks dir
 ## Goal
 
 - Make `apply` actually honor the dynamic `apply.instruction` from the schema.
-- If the project requires `tdd-workflow`, execute `Step 0` through `Step 7` before implementation.
+- Enter `test-driven-development` before implementation and execute `RED -> GREEN -> REFACTOR` before coding.
 - Keep `tasks.md` focused on scope and progress while `apply` controls the execution order.
 
 ## Recommended changes
 
 1. After `openspec instructions apply --change "<name>" --json`, read the dynamic instruction.
-2. If the instruction or project rules require `tdd-workflow`, read that skill first and only then start coding.
+2. Read `test-driven-development` first and only then start coding.
 3. Do not treat `tasks.md` as the only source of order; it should track slices, scope, and checkboxes.
 4. Only mark tasks done after the corresponding TDD step has been completed and verified.
 5. Guardrails should explicitly forbid skipping `RED -> GREEN -> REFACTOR`.
@@ -21,7 +21,7 @@ This document explains how to upgrade OpenSpec `apply` from "implement tasks dir
 1. Select the change
 2. Read `openspec status`
 3. Read `openspec instructions apply`
-4. Decide whether `tdd-workflow` is required from `apply.instruction`
+4. Enter `test-driven-development` from `apply.instruction`
 5. Read the context files
 6. Execute implementation according to the required workflow
 

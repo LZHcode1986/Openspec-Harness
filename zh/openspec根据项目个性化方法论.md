@@ -304,14 +304,14 @@ tasks 是最容易“看起来完整，实际上不可实施”的地方。
 
 ### 4.5 apply 阶段的 TDD 接入
 
-如果项目希望在实施阶段强制走 `test-driven-development`，则建议把这条约束放进 `apply`，不要塞进 `tasks` 模板本体。
+把默认的 `test-driven-development` 约束放进 `apply`，不要塞进 `tasks` 模板本体。
 
 推荐做法：
 
-- Agent 必须先询问用户，项目是否启用 `test-driven-development`
-- 只有用户确认启用后，才覆盖 `apply` skill，并把 TDD 约束写入项目配置
-- 如果用户确认启用，Agent 还要检查目标项目是否已有 `test-driven-development` skill；如果没有，就补齐到 OpenSpec skills 同目录
-- 一旦用户启用，`apply` 里就要明确要求：编写或改动代码前，默认先执行 `test-driven-development`
+- 默认按 `test-driven-development` 处理，不再询问用户是否启用
+- 覆盖 `apply` skill，并把 TDD 约束写入项目配置
+- Agent 还要检查目标项目是否已有 `test-driven-development` skill；如果没有，就补齐到 OpenSpec skills 同目录
+- `apply` 里要明确要求：编写或改动代码前，默认先执行 `test-driven-development`
 - `apply` 仍然尊重项目已有的实施、测试、交付规范，不替代它们
 
 这样可以保证：
@@ -421,31 +421,29 @@ archive 前建议确认：
 - tasks 分解方式
 - archive 规则
 
-另外必须记录一条显式决策，并执行一条自动检查：
+另外必须执行一条自动检查：
 
-- 项目是否启用 `test-driven-development`
-- 如果启用，Agent 是否已经检查并补齐 `skills/test-driven-development/SKILL.md`
+- Agent 是否已经检查并补齐 `skills/test-driven-development/SKILL.md`
 
 规则是：
 
-- Agent 不能自己跳过这两次询问
-- 只有在用户确认启用 `test-driven-development` 后，才能覆盖 `apply` skill` 并写入对应 TDD 规则
-- 一旦用户确认启用，Agent 不能跳过对 `test-driven-development` skill 是否缺失的检查
+- 默认按 `test-driven-development` 处理，不再询问用户是否启用
+- 覆盖 `apply` skill 并写入对应 TDD 规则
+- 一旦检查到缺失，Agent 不能跳过对 `test-driven-development` skill 的补齐
 
 ## 9. 推荐迁移步骤
 
 在新项目里，建议按下面顺序迁移：
 
-1. 先询问用户，项目是否启用 `test-driven-development`
-2. 再写 `openspec/config.yaml`
-3. 再建 custom schema
-4. 再落 `QUALITY-GATE.md`
-5. 再落 `CHANGE-WORKING-AGREEMENT.md`
-6. 再落 `ARCHIVE-CHECKLIST.md`
-7. 再用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill
-8. 如果启用，再覆盖 `skills/openspec-apply-change/SKILL.md`，并写入对应 TDD 约束
-9. 再检查目标项目是否已有 `skills/test-driven-development/SKILL.md` 对应 skill，缺失则补齐
-10. 最后再做主 spec 正规化
+1. 先写 `openspec/config.yaml`
+2. 再建 custom schema
+3. 再落 `QUALITY-GATE.md`
+4. 再落 `CHANGE-WORKING-AGREEMENT.md`
+5. 再落 `ARCHIVE-CHECKLIST.md`
+6. 再用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill
+7. 再覆盖 `skills/openspec-apply-change/SKILL.md`，并写入对应 TDD 约束
+8. 再检查目标项目是否已有 `skills/test-driven-development/SKILL.md` 对应 skill，缺失则补齐
+9. 最后再做主 spec 正规化
 
 不要一开始就先改 tasks 模板。
 

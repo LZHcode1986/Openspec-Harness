@@ -24,7 +24,7 @@
 
 ### 实施约束
 
-- 进入 `apply` 后，如项目要求 `tdd-workflow`，则先按该 workflow 的 Step 0-7 执行。
+- 进入 `apply` 后，先执行 `test-driven-development` 并遵循 `RED -> GREEN -> REFACTOR`。
 - `tasks.md` 只承担范围拆分与进度跟踪，不在此处重复展开完整 TDD 细节。
 
 ## 1. 准备阶段

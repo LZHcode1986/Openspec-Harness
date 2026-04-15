@@ -35,7 +35,7 @@ rules:
   implementation:
     - <hard requirement 1 for the implementation stage>
     - <hard requirement 2 for the implementation stage>
-    - <if the user enables test-driven-development, require it before any code is written or modified; if not enabled, do not add this rule>
+    - <require test-driven-development before any code is written or modified>
 
 traceability:
   <reference-change-or-arch-slice>:

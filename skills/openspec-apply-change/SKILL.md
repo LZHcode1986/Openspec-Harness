@@ -53,15 +53,14 @@ Implement tasks from an OpenSpec change.
 
    Read the dynamic `instruction` returned by `openspec instructions apply`.
 
-   - If the schema or project rules require another skill or workflow before implementation
-     (for example `tdd-workflow`), you MUST follow that workflow first.
+   - You MUST follow the required implementation workflow before implementation starts.
+   - For this repository, that means reading and entering `test-driven-development` before any task execution begins.
    - Treat `tasks.md` as scope and progress tracking; it does not override the required
      implementation order from the apply instruction.
-   - If `tdd-workflow` is required:
-     - Read the `tdd-workflow` skill before writing code
-     - Execute implementation in `Step 0 -> Step 7` order
-     - Do not skip `RED -> GREEN -> REFACTOR`
-     - Only mark the related task complete after the required TDD step is actually verified
+   - Read the `test-driven-development` skill before writing code.
+   - Execute implementation in `RED -> GREEN -> REFACTOR` order.
+   - Do not skip `RED -> GREEN -> REFACTOR`.
+   - Only mark the related task complete after the required TDD step is actually verified.
 
 5. **Read context files**
 
@@ -82,8 +81,8 @@ Implement tasks from an OpenSpec change.
 
    For each pending task:
    - Show which task is being worked on
-   - Follow any apply-stage workflow required by the schema before or during implementation
-     (for example, complete the relevant `tdd-workflow` step before moving to the next coding step)
+   - Follow the apply-stage workflow before or during implementation
+     (for example, complete the relevant `test-driven-development` step before moving to the next coding step)
    - Make the code changes required
    - Keep changes minimal and focused
    - Mark task complete in the tasks file: `- [ ]` → `- [x]`
@@ -158,7 +157,7 @@ What would you like to do?
 - Keep going through tasks until done or blocked
 - Always honor the dynamic apply instruction before implementing tasks
 - Always read context files before starting (from the apply instructions output)
-- If the schema or project rules require `tdd-workflow`, read it and follow `Step 0 -> Step 7`
+- If the schema or project rules require `test-driven-development`, read it and follow `RED -> GREEN -> REFACTOR`
   before declaring implementation complete
 - If task is ambiguous, pause and ask before implementing
 - If implementation reveals issues, pause and suggest artifact updates

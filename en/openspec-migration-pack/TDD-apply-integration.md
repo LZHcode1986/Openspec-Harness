@@ -1,6 +1,6 @@
 # TDD Integration for `apply`
 
-This document explains how to connect a TDD workflow to the OpenSpec `apply` phase when the project requires it.
+This document explains how to connect a TDD workflow to the OpenSpec `apply` phase as the default implementation discipline.
 
 ## Purpose
 
@@ -16,9 +16,9 @@ This document explains how to connect a TDD workflow to the OpenSpec `apply` pha
 
 1. Resolve the current change.
 2. Read the `apply.instruction`.
-3. Detect whether TDD is required.
-4. Load the TDD workflow instructions.
-5. Run the TDD steps in order.
+3. Load the `test-driven-development` instructions.
+4. Enter `test-driven-development`.
+5. Run `RED -> GREEN -> REFACTOR` in order.
 6. Execute implementation only after the workflow allows it.
 
 ## Notes
