@@ -84,6 +84,6 @@ apply:
   tracks: tasks.md
   instruction: |
     进入实施前，先读取 change 产物和项目自己的实施规范。
-    如果项目要求 `tdd-workflow`，则先读取并遵循该 skill，按其 Step 0 -> Step 7 执行。
+    如果用户已经为该项目启用 `test-driven-development`，则编写或改动代码前默认先执行该 workflow，再推进后续实现。
     OpenSpec apply 不替代项目原有的编码、测试、交付规则。
     按任务推进，逐步打勾完成；如果遇到阻塞或需要澄清，先暂停再继续。

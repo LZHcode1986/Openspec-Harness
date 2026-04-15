@@ -55,9 +55,10 @@ Tell the agent: "Configure this repository for me: https://github.com/LZHcode198
 
 When adapting this workflow to another project:
 
-- Treat `openspec-migration-pack/propose-redesign.md` as a required workflow asset, not optional notes
-- Explicitly ask the user whether the target project should also adopt `openspec-migration-pack/apply-redesign.md`
-- If the goal is to reproduce this repository 1:1, include both redesign documents
+- Replace the target project's existing `propose` skill with `skills/openspec-propose/SKILL.md`
+- Ask the user whether the project requires `test-driven-development`
+- Only if the user says yes, replace the target project's `apply` skill with `skills/openspec-apply-change/SKILL.md`
+- After configuring `apply`, ask whether `skills/test-driven-development/SKILL.md` should also be installed into the OpenSpec skills directory
 
 ## Recommended reading order
 
@@ -65,9 +66,10 @@ When adapting this workflow to another project:
 2. Then read [`Repository-Guide.md`](Repository-Guide.md).
 3. Then read [`OpenSpec-Workflow-Customization-Methodology.md`](OpenSpec-Workflow-Customization-Methodology.md).
 4. Then read [`openspec-migration-pack/README.md`](openspec-migration-pack/README.md).
-5. Then read the three gate documents and `propose-redesign.md`.
-6. Then make an explicit decision on `apply-redesign.md`; if you want a 1:1 reproduction, read it as a required asset.
-7. Read the comparison page when you want a direct comparison with stock OpenSpec.
+5. Then read [`../skills/README.md`](../skills/README.md) and [`../skills/openspec-propose/SKILL.md`](../skills/openspec-propose/SKILL.md).
+6. Then read the three gate documents, schema, and `config.yaml.example`.
+7. If the user enables `test-driven-development`, then read [`../skills/openspec-apply-change/SKILL.md`](../skills/openspec-apply-change/SKILL.md).
+8. Read the comparison page when you want a direct comparison with stock OpenSpec.
 
 ## Detailed contents
 
@@ -81,8 +83,8 @@ When adapting this workflow to another project:
 | Archive checklist | [openspec-migration-pack/ARCHIVE-CHECKLIST.md](openspec-migration-pack/ARCHIVE-CHECKLIST.md) | Post-archive normalization |
 | Schema example | [openspec-migration-pack/schemas/project-schema/README.md](openspec-migration-pack/schemas/project-schema/README.md) | Project schema skeleton |
 | Propose redesign notes | [openspec-migration-pack/propose-redesign.md](openspec-migration-pack/propose-redesign.md) | Required workflow asset for `propose` hardening |
-| Apply redesign notes | [openspec-migration-pack/apply-redesign.md](openspec-migration-pack/apply-redesign.md) | Explicit migration decision for `apply` hardening |
-| TDD integration | [openspec-migration-pack/TDD-apply-integration.md](openspec-migration-pack/TDD-apply-integration.md) | Optional implementation gate |
+| Apply redesign notes | [openspec-migration-pack/apply-redesign.md](openspec-migration-pack/apply-redesign.md) | Design notes, not the main migration entry anymore |
+| TDD integration | [openspec-migration-pack/TDD-apply-integration.md](openspec-migration-pack/TDD-apply-integration.md) | Reference only after TDD is enabled |
 | Comparison page | [OpenSpec-vs-This-Workflow.md](OpenSpec-vs-This-Workflow.md) | Difference from stock OpenSpec |
 
 ## License

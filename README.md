@@ -55,9 +55,10 @@ Tell the agent: "Configure this repository for me: https://github.com/LZHcode198
 
 When adapting this workflow to another project:
 
-- Treat `en/openspec-migration-pack/propose-redesign.md` as a required workflow asset, not optional notes
-- Explicitly ask the user whether the target project should also adopt `en/openspec-migration-pack/apply-redesign.md`
-- If the goal is to reproduce this repository 1:1, include both redesign documents
+- Replace the target project's existing `propose` skill with `skills/openspec-propose/SKILL.md`
+- Ask the user whether the project requires `test-driven-development`
+- Only if the user says yes, replace the target project's `apply` skill with `skills/openspec-apply-change/SKILL.md`
+- After configuring `apply`, ask whether `skills/test-driven-development/SKILL.md` should also be installed into the OpenSpec skills directory
 
 ## Recommended reading order
 
@@ -65,9 +66,10 @@ When adapting this workflow to another project:
 2. Then read [`en/Repository-Guide.md`](en/Repository-Guide.md).
 3. Then read [`en/OpenSpec-Workflow-Customization-Methodology.md`](en/OpenSpec-Workflow-Customization-Methodology.md).
 4. Then read [`en/openspec-migration-pack/README.md`](en/openspec-migration-pack/README.md).
-5. Then read the three gate documents and `propose-redesign.md`.
-6. Then make an explicit decision on `apply-redesign.md`; if you want a 1:1 reproduction, read it as a required asset.
-7. Read the comparison page when you want a direct comparison with stock OpenSpec.
+5. Then read [`skills/README.md`](skills/README.md) and [`skills/openspec-propose/SKILL.md`](skills/openspec-propose/SKILL.md).
+6. Then read the three gate documents, schema, and `config.yaml.example`.
+7. If the user enables `test-driven-development`, then read [`skills/openspec-apply-change/SKILL.md`](skills/openspec-apply-change/SKILL.md).
+8. Read the comparison page when you want a direct comparison with stock OpenSpec.
 
 ## Detailed contents
 
@@ -80,9 +82,13 @@ When adapting this workflow to another project:
 | Working agreement | [en/openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md](en/openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md) | Change discipline |
 | Archive checklist | [en/openspec-migration-pack/ARCHIVE-CHECKLIST.md](en/openspec-migration-pack/ARCHIVE-CHECKLIST.md) | Post-archive normalization |
 | Schema example | [en/openspec-migration-pack/schemas/project-schema/README.md](en/openspec-migration-pack/schemas/project-schema/README.md) | Project schema skeleton |
-| Propose redesign notes | [en/openspec-migration-pack/propose-redesign.md](en/openspec-migration-pack/propose-redesign.md) | Required workflow asset for `propose` hardening |
-| Apply redesign notes | [en/openspec-migration-pack/apply-redesign.md](en/openspec-migration-pack/apply-redesign.md) | Explicit migration decision for `apply` hardening |
-| TDD integration | [en/openspec-migration-pack/TDD-apply-integration.md](en/openspec-migration-pack/TDD-apply-integration.md) | Optional implementation gate |
+| Skills guide | [skills/README.md](skills/README.md) | Skill roles and configuration order |
+| Propose skill | [skills/openspec-propose/SKILL.md](skills/openspec-propose/SKILL.md) | Primary migration source for `propose` |
+| Apply skill | [skills/openspec-apply-change/SKILL.md](skills/openspec-apply-change/SKILL.md) | Only adopt after TDD is enabled |
+| Test-driven-development skill | [skills/test-driven-development/SKILL.md](skills/test-driven-development/SKILL.md) | Install into the OpenSpec skills directory only after explicit confirmation |
+| Propose redesign notes | [en/openspec-migration-pack/propose-redesign.md](en/openspec-migration-pack/propose-redesign.md) | Design notes, not the main migration entry anymore |
+| Apply redesign notes | [en/openspec-migration-pack/apply-redesign.md](en/openspec-migration-pack/apply-redesign.md) | Design notes, not the main migration entry anymore |
+| TDD integration | [en/openspec-migration-pack/TDD-apply-integration.md](en/openspec-migration-pack/TDD-apply-integration.md) | Reference only after TDD is enabled |
 | Comparison page | [en/OpenSpec-vs-This-Workflow.md](en/OpenSpec-vs-This-Workflow.md) | Difference from stock OpenSpec |
 
 ## License

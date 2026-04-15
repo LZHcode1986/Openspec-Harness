@@ -1,6 +1,8 @@
 # propose 流程改造思路
 
-这份文档描述如何把 OpenSpec 的 `propose` 从“覆盖率检查”升级为“统一就绪门禁”。
+这份文档现在只用于解释 `skills/openspec-propose/SKILL.md` 为什么这样设计，不再作为迁移主入口。
+
+它描述的是：如何把 OpenSpec 的 `propose` 从“覆盖率检查”升级为“统一就绪门禁”。
 
 ## 目标
 - 让 `propose` 在进入 `apply` 前完成最终放行判断。

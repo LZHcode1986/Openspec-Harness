@@ -35,6 +35,7 @@ rules:
   implementation:
     - <实施阶段的硬性要求 1>
     - <实施阶段的硬性要求 2>
+    - <如果用户启用 test-driven-development，则编写或改动代码前默认先执行它；如果未启用，则不要写这条规则>
 
 traceability:
   <reference-change-or-arch-slice>:

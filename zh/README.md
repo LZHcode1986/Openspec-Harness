@@ -52,9 +52,10 @@
 
 如果是把这套流程迁移到别的项目：
 
-- 必须把 `zh/openspec 资产迁移/propose-改造思路.md` 当成必接入资产，而不是补充说明
-- 必须显式询问用户，目标项目是否还要接入 `zh/openspec 资产迁移/apply-改造思路.md`
-- 如果目标是 1:1 复刻本仓库资产，则两份改造文档都要接入
+- 必须用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill
+- 必须询问用户，项目是否需要 `test-driven-development`
+- 只有用户确认需要 `test-driven-development` 后，才能继续配置 `skills/openspec-apply-change/SKILL.md`
+- 配置完 `apply` skill 后，必须再次询问用户，是否把 `skills/test-driven-development/SKILL.md` 安装到 OpenSpec skills 同目录
 
 ## 建议阅读顺序
 
@@ -62,9 +63,10 @@
 2. 再读 `zh/仓库导览.md`
 3. 再读 `zh/openspec根据项目个性化方法论.md`
 4. 再读 `zh/openspec 资产迁移/README.md`
-5. 再读三个门禁文档和 `propose-改造思路.md`
-6. 再对 `apply-改造思路.md` 做显式决策；如果要 1:1 复刻，则必须接入
-7. 需要对比时再看英文对比页
+5. 再读 `skills/README.md` 和 `skills/openspec-propose/SKILL.md`
+6. 再读三个门禁文档、schema 和 `config.yaml.example`
+7. 如果用户选择启用 `test-driven-development`，再读 `skills/openspec-apply-change/SKILL.md`
+8. 需要对比时再看英文对比页
 
 ## 详细内容
 
@@ -77,9 +79,13 @@
 | 工作协议 | [zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md](zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md) | 变更工作规则 |
 | 归档清单 | [zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md](zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md) | 归档后正规化检查 |
 | schema 示例 | [zh/openspec 资产迁移/schemas/project-schema/README.md](zh/openspec 资产迁移/schemas/project-schema/README.md) | 项目 schema 骨架 |
-| propose 改造说明 | [zh/openspec 资产迁移/propose-改造思路.md](zh/openspec 资产迁移/propose-改造思路.md) | `propose` 技能/流程的必接入资产 |
-| apply 改造说明 | [zh/openspec 资产迁移/apply-改造思路.md](zh/openspec 资产迁移/apply-改造思路.md) | `apply` 技能/流程的显式决策资产 |
-| TDD 接入说明 | [zh/openspec 资产迁移/TDD-apply接入说明.md](zh/openspec 资产迁移/TDD-apply接入说明.md) | 需要时接入 TDD |
+| Skills 导览 | [skills/README.md](../skills/README.md) | skill 角色与配置顺序 |
+| propose skill | [skills/openspec-propose/SKILL.md](../skills/openspec-propose/SKILL.md) | `propose` 的主迁移源资产 |
+| apply skill | [skills/openspec-apply-change/SKILL.md](../skills/openspec-apply-change/SKILL.md) | 仅在启用 `test-driven-development` 后接入 |
+| test-driven-development skill | [skills/test-driven-development/SKILL.md](../skills/test-driven-development/SKILL.md) | 用户确认后再安装到 OpenSpec skills 目录 |
+| propose 改造说明 | [zh/openspec 资产迁移/propose-改造思路.md](zh/openspec 资产迁移/propose-改造思路.md) | 设计说明，不再作为主迁移入口 |
+| apply 改造说明 | [zh/openspec 资产迁移/apply-改造思路.md](zh/openspec 资产迁移/apply-改造思路.md) | 设计说明，不再作为主迁移入口 |
+| TDD 接入说明 | [zh/openspec 资产迁移/TDD-apply接入说明.md](zh/openspec 资产迁移/TDD-apply接入说明.md) | 仅在启用 TDD 后参考 |
 | 中英对比页 | [en/OpenSpec-vs-This-Workflow.md](en/OpenSpec-vs-This-Workflow.md) | 和原版 OpenSpec 的差异 |
 
 ## 许可

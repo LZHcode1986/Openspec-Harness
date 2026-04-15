@@ -144,11 +144,11 @@ Recommended checks:
 - implementability
 - archive safety
 
-### Step 5: Connect the gate to the `propose` flow
+### Step 5: Lock the `propose` flow through `skills/openspec-propose/SKILL.md`
 
 Do not make the gate a parallel process.
 
-This step is not complete until the target project's `propose` skill or command flow has been updated according to `openspec-migration-pack/propose-redesign.md` or an equivalent project-local document.
+This step is not complete until the target project's existing `propose` skill has been replaced by `skills/openspec-propose/SKILL.md`.
 
 Recommended internal order:
 
@@ -161,8 +161,9 @@ Recommended internal order:
 
 Migration rule:
 
-- `propose-redesign.md` is a required workflow asset, not optional methodology notes
-- Do not claim the workflow migration is complete until this `propose` redesign has been connected
+- `skills/openspec-propose/SKILL.md` is the primary migration asset for `propose`
+- `propose-redesign.md` remains only as a design note for that skill
+- Do not claim the workflow migration is complete until the target project's original `propose` skill has been replaced
 
 ### Step 6: Restore active change discipline
 
@@ -273,16 +274,18 @@ If you want the smallest useful version of this methodology, keep only:
 - the quality gate
 - the working agreement
 - the archive checklist
-- the required `propose` workflow redesign
+- `skills/openspec-propose/SKILL.md`
+- `skills/README.md`
 
-Also record one explicit decision:
+Also record two explicit decisions:
 
-- whether the target project must adopt the `apply` workflow redesign
+- whether the target project enables `test-driven-development`
+- if enabled, whether `skills/test-driven-development/SKILL.md` should also be installed into the OpenSpec skills directory
 
 Rule:
 
-- the agent must ask the user before skipping `apply-redesign.md`
-- if the target is a 1:1 reproduction of this repository, include `apply-redesign.md` by default
+- the agent must ask the user before enabling the TDD-specific `apply` setup
+- only after the user enables `test-driven-development` may the agent replace the target project's `apply` skill and write TDD-first rules into config/schema
 
 That is enough to make OpenSpec project-specific without turning it into a heavyweight system.
 

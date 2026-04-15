@@ -153,11 +153,11 @@ schema 的职责：
 - implementability
 - archive safety
 
-### 第五步：把 readiness gate 接入 propose（openspec-propose/SKILL.md） 流程
+### 第五步：用 `skills/openspec-propose/SKILL.md` 固化 propose 流程
 
 不要把 gate 做成 propose 之外的平行流程。
 
-这一步只有在目标项目已经按 `openspec 资产迁移/propose-改造思路.md` 改造了 `propose` 技能或命令流程后，才算真正完成。
+这一步只有在目标项目已经用 `skills/openspec-propose/SKILL.md` 覆盖了原有的 `propose` skill 后，才算真正完成。
 
 建议在 propose 内部固定执行顺序：
 
@@ -172,8 +172,9 @@ schema 的职责：
 
 迁移规则：
 
-- `propose-改造思路.md` 是必接入资产，不是方法论补充文档
-- 如果还没把这份规则接进目标项目的 `propose` 流程，就不能宣称迁移完成
+- `skills/openspec-propose/SKILL.md` 是 `propose` 的主迁移源资产
+- `propose-改造思路.md` 只用于解释这个 skill 的设计思路
+- 如果还没覆盖目标项目原有的 `propose` skill，就不能宣称迁移完成
 
 ### 第六步：恢复 active change 驱动
 
@@ -303,12 +304,14 @@ tasks 是最容易“看起来完整，实际上不可实施”的地方。
 
 ### 4.5 apply 阶段的 TDD 接入
 
-如果项目希望保留轻量的 `propose`，但在实施阶段强制走 TDD，则建议把 TDD 约束放进 `apply`，不要塞进 `tasks` 模板本体。
+如果项目希望在实施阶段强制走 `test-driven-development`，则建议把这条约束放进 `apply`，不要塞进 `tasks` 模板本体。
 
 推荐做法：
 
-- `tasks` 里只写一条简洁的实施约束，说明进入 `apply` 后必须先执行 `tdd-workflow`
-- `apply` 里明确按 `Step 0 -> Step 7` 执行
+- Agent 必须先询问用户，项目是否启用 `test-driven-development`
+- 只有用户确认启用后，才覆盖 `apply` skill，并把 TDD 约束写入项目配置
+- 覆盖 `apply` skill 后，再询问用户是否还要把 `skills/test-driven-development/SKILL.md` 安装到 OpenSpec skills 同目录
+- 一旦用户启用，`apply` 里就要明确要求：编写或改动代码前，默认先执行 `test-driven-development`
 - `apply` 仍然尊重项目已有的实施、测试、交付规范，不替代它们
 
 这样可以保证：
@@ -317,7 +320,7 @@ tasks 是最容易“看起来完整，实际上不可实施”的地方。
 - `tasks` 继续只承担实施拆分
 - 真正的 TDD 顺序在实施阶段生效
 
-如果要迁移到其他项目，建议把这条规则单独沉成一份 `TDD-apply接入说明.md`，并在迁移包目录中同步记录。
+如果要迁移到其他项目，`TDD-apply接入说明.md` 可以继续保留，但只作为补充设计说明，不再是主入口。
 
 ## 5. readiness gate 的个性化方法
 
@@ -407,8 +410,8 @@ archive 前建议确认：
 3. `openspec/QUALITY-GATE.md`
 4. `openspec/CHANGE-WORKING-AGREEMENT.md`
 5. `openspec/ARCHIVE-CHECKLIST.md`
-6. `propose-改造思路.md`
-7. `openspec-propose` 的流程改造落地
+6. `skills/openspec-propose/SKILL.md`
+7. `skills/README.md`
 
 迁移时不要直接复制业务内容，只复制方法：
 
@@ -418,14 +421,15 @@ archive 前建议确认：
 - tasks 分解方式
 - archive 规则
 
-另外必须记录一条显式决策：
+另外必须记录两条显式决策：
 
-- 目标项目是否要按 `apply-改造思路.md` 改造 `apply` 技能或命令流程
+- 项目是否启用 `test-driven-development`
+- 如果启用，是否还要把 `skills/test-driven-development/SKILL.md` 安装到 OpenSpec skills 同目录
 
 规则是：
 
-- Agent 不能自己把 `apply-改造思路.md` 视为默认跳过项
-- 如果用户目标是 1:1 复刻本仓库资产，则默认需要一并接入
+- Agent 不能自己跳过这两次询问
+- 只有在用户确认启用 `test-driven-development` 后，才能覆盖 `apply` skill` 并写入对应 TDD 规则
 
 ## 9. 推荐迁移步骤
 
@@ -436,9 +440,11 @@ archive 前建议确认：
 3. 再落 `QUALITY-GATE.md`
 4. 再落 `CHANGE-WORKING-AGREEMENT.md`
 5. 再落 `ARCHIVE-CHECKLIST.md`
-6. 再按 `propose-改造思路.md` 改造 propose 流程
-7. 再显式询问用户，是否还要按 `apply-改造思路.md` 改造 apply 流程
-8. 最后再做主 spec 正规化
+6. 再用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill
+7. 再显式询问用户，项目是否启用 `test-driven-development`
+8. 如果启用，再覆盖 `skills/openspec-apply-change/SKILL.md`，并写入对应 TDD 约束
+9. 再显式询问用户，是否安装 `skills/test-driven-development/SKILL.md`
+10. 最后再做主 spec 正规化
 
 不要一开始就先改 tasks 模板。
 

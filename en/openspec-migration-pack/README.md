@@ -9,10 +9,11 @@ It is intended to be copied into another project and then tailored to that proje
 1. Use `config.yaml.example` as the English placeholder set.
 2. Copy the schema skeleton from `schemas/project-schema/`.
 3. Adopt the project-level gate documents.
-4. You must adapt `propose-redesign.md` into your own `propose` workflow; it is not optional background reading.
-5. Before finishing migration, explicitly decide with the user whether `apply-redesign.md` must also be adopted.
-6. If the goal is to reproduce this repository 1:1, adopt both redesign documents.
-7. If your implementation phase must follow TDD, connect that rule through `TDD-apply-integration.md`.
+4. Replace the target project's existing `propose` skill with `../../skills/openspec-propose/SKILL.md`.
+5. Ask the user whether the project requires `test-driven-development`.
+6. If the answer is no, stop there and do not configure the `apply` or `test-driven-development` skills.
+7. If the answer is yes, replace the target project's existing `apply` skill with `../../skills/openspec-apply-change/SKILL.md`.
+8. After configuring `apply`, ask whether `../../skills/test-driven-development/SKILL.md` should also be installed into the OpenSpec skills directory.
 
 ## Recommended order
 
@@ -21,9 +22,10 @@ It is intended to be copied into another project and then tailored to that proje
 3. `QUALITY-GATE.md`
 4. `CHANGE-WORKING-AGREEMENT.md`
 5. `ARCHIVE-CHECKLIST.md`
-6. `propose-redesign.md` as a required asset
-7. Explicitly decide whether `apply-redesign.md` must be adopted
-8. If yes, read `TDD-apply-integration.md` and `apply-redesign.md` together
+6. `../../skills/openspec-propose/SKILL.md`
+7. Ask whether `test-driven-development` must be enabled
+8. If yes, adopt `../../skills/openspec-apply-change/SKILL.md`
+9. If the user also confirms installation, adopt `../../skills/test-driven-development/SKILL.md`
 
 ## What this pack is not
 
@@ -39,6 +41,9 @@ It is intended to be copied into another project and then tailored to that proje
 - `ARCHIVE-CHECKLIST.md`: archive normalization checklist
 - `config.yaml.example`: project context example
 - `schemas/project-schema/`: schema and template skeleton
-- `propose-redesign.md`: required migration asset for the `propose` workflow
-- `apply-redesign.md`: explicit migration decision for the `apply` workflow
-- `TDD-apply-integration.md`: TDD integration notes
+- `../../skills/openspec-propose/SKILL.md`: primary migration source for the `propose` workflow
+- `../../skills/openspec-apply-change/SKILL.md`: conditional migration source for the `apply` workflow
+- `../../skills/test-driven-development/SKILL.md`: optional installation after explicit confirmation
+- `propose-redesign.md`: design notes for the `propose` skill
+- `apply-redesign.md`: design notes for the `apply` skill
+- `TDD-apply-integration.md`: reference notes once TDD has been enabled

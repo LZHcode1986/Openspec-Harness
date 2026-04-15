@@ -84,6 +84,6 @@ apply:
   tracks: tasks.md
   instruction: |
     Before implementation, read the change artifacts and the project's own implementation rules.
-    If the project requires `tdd-workflow`, read and follow that skill first, then execute Step 0 -> Step 7.
+    If the user has enabled `test-driven-development` for this project, require that workflow before any code is written or modified.
     OpenSpec apply does not replace the project's original coding, testing, or delivery rules.
     Proceed task by task, checking items off as you go; if blocked or clarification is needed, pause first and continue later.
