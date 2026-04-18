@@ -1,8 +1,17 @@
-## 新增需求
+## [ADDED] Requirements（新增）
 
-### 需求：<requirement-name>
+### Requirement: <requirement-name>
 <!-- 需求描述。这里不要写本项目专有名词。 -->
 
-#### 场景：<scenario-name>
+#### Scenario: <scenario-name>
+- **WHEN** <condition>
+- **THEN** <expected outcome>
+
+## [MODIFIED] Requirements（修改）
+
+### Requirement: <requirement-name>
+<!-- 需求描述。这里不要写本项目专有名词。 -->
+
+#### Scenario: <scenario-name>
 - **WHEN** <condition>
 - **THEN** <expected outcome>
