@@ -2,21 +2,24 @@
 
 这份文档现在只用于解释 `skills/openspec-apply-change/SKILL.md` 为什么这样设计，不再作为迁移主入口。
 
-它描述的是：如何把 OpenSpec 的 `apply` 从“按任务直接实现”升级为“先遵循 schema 的实施流程，再推进任务”。
+它描述的是：如何把 OpenSpec 的 `apply` 从“按任务直接实现”升级为“按 change 类型分支的 proof-first 实施流程”。
 
 ## 目标
 
 - 让 `apply` 真正执行 schema 中的 `apply.instruction`。
 - 进入实施前，先走对应 `test-driven-development` workflow，再推进具体实现。
 - 保持 `tasks.md` 负责范围与进度，保持实施顺序由 `apply` 控制。
+- 对 `interactive` change，先完成 `Blocking` 中的 `Proof Task`，再推进后续切片。
 
 ## 建议改造点
 
 1. 在 `openspec instructions apply --change "<name>" --json` 之后，读取动态 `instruction`。
 2. 先读取对应 `test-driven-development` skill，再进入编码。
 3. 不把 `tasks.md` 当成唯一顺序来源；它只跟踪切片、范围和勾选状态。
-4. 只有在对应 TDD 步骤完成并验证后，才允许勾选相关任务。
-5. Guardrails 要明确禁止跳过 `RED -> GREEN -> REFACTOR`。
+4. `standard` change 按 tasks 顺序推进。
+5. `interactive` change 先完成 `Blocking` 里的 `Proof Task`，再推进后续切片。
+6. 只有在对应 TDD 步骤完成并验证后，才允许勾选相关任务。
+7. Guardrails 要明确禁止跳过 `RED -> GREEN -> REFACTOR`。
 
 ## 推荐执行顺序
 

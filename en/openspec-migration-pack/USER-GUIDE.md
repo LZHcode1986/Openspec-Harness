@@ -1,6 +1,9 @@
-# Active Change Working Agreement
+# Active Change User Guide
 
-This document defines how OpenSpec should be used in this project.
+> This document is for users. It is not a spec, not a workflow document, and not a gate document.
+> It only explains how OpenSpec is used in this repository.
+
+This document is for users and explains how OpenSpec should be used in this project.
 
 The goal is to treat OpenSpec as a change workspace, not as a post-hoc archive folder.
 

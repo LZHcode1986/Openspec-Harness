@@ -29,7 +29,7 @@ The common failure modes are:
 
 - Project context is defined first: boundaries, authority sources, canonical objects, and state machines
 - Schema is used to encode project constraints into templates and generated structure
-- A unified readiness gate decides whether a proposal can enter `apply`
+- Proofability, tasks-readiness, and implementation-done checks decide whether a proposal can enter `apply`
 - Active Change rules require implementation discoveries to be written back into documents
 - Archive checks prevent the main spec from degrading into leftover change deltas
 - Proposal, design, and tasks each have a clearer responsibility
@@ -66,7 +66,7 @@ When adapting this workflow to another project:
 3. Then read [`OpenSpec-Workflow-Customization-Methodology.md`](OpenSpec-Workflow-Customization-Methodology.md).
 4. Then read [`openspec-migration-pack/README.md`](openspec-migration-pack/README.md).
 5. Then read [`../skills/README.md`](../skills/README.md) and [`../skills/openspec-propose/SKILL.md`](../skills/openspec-propose/SKILL.md).
-6. Then read the three gate documents, schema, `config.yaml.example`, [`../skills/openspec-apply-change/SKILL.md`](../skills/openspec-apply-change/SKILL.md), and [`../skills/test-driven-development/SKILL.md`](../skills/test-driven-development/SKILL.md).
+6. Then read the gate documents, schema, `config.yaml.example`, [`../skills/openspec-apply-change/SKILL.md`](../skills/openspec-apply-change/SKILL.md), and [`../skills/test-driven-development/SKILL.md`](../skills/test-driven-development/SKILL.md).
 7. Read the comparison page when you want a direct comparison with stock OpenSpec.
 
 ## Detailed contents
@@ -77,7 +77,7 @@ When adapting this workflow to another project:
 | Main methodology | [OpenSpec-Workflow-Customization-Methodology.md](OpenSpec-Workflow-Customization-Methodology.md) | Core methodology |
 | Migration pack overview | [openspec-migration-pack/README.md](openspec-migration-pack/README.md) | How to reuse the assets |
 | Quality gate | [openspec-migration-pack/QUALITY-GATE.md](openspec-migration-pack/QUALITY-GATE.md) | Proposal readiness check |
-| Working agreement | [openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md](openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md) | Change discipline |
+| User guide | [openspec-migration-pack/USER-GUIDE.md](openspec-migration-pack/USER-GUIDE.md) | User-facing change guidance |
 | Archive checklist | [openspec-migration-pack/ARCHIVE-CHECKLIST.md](openspec-migration-pack/ARCHIVE-CHECKLIST.md) | Post-archive normalization |
 | Schema example | [openspec-migration-pack/schemas/project-schema/README.md](openspec-migration-pack/schemas/project-schema/README.md) | Project schema skeleton |
 | Propose redesign notes | [openspec-migration-pack/propose-redesign.md](openspec-migration-pack/propose-redesign.md) | Required workflow asset for `propose` hardening |

@@ -146,12 +146,11 @@ schema 的职责：
 
 - `openspec/QUALITY-GATE.md`
 
-建议纳入四类检查：
+建议纳入三道检查：
 
-- coverage completeness
-- authority consistency
-- implementability
-- archive safety
+- proofability check
+- tasks readiness check
+- implementation done check
 
 ### 第五步：用 `skills/openspec-propose/SKILL.md` 固化 propose 流程
 
@@ -162,11 +161,11 @@ schema 的职责：
 建议在 propose 内部固定执行顺序：
 
 1. source decomposition
-2. proposal coverage check
-3. design coverage check
+2. proofability check
+3. design
 4. specs/tasks 生成
-5. final traceability review
-6. final readiness gate
+5. tasks readiness check
+6. implementation done check
 
 这样可以避免“文档生成完成了，但仍然没有真正放行判断”的情况。
 
@@ -180,7 +179,7 @@ schema 的职责：
 
 团队约定建议单独落文档，例如：
 
-- `openspec/CHANGE-WORKING-AGREEMENT.md`
+- `openspec/用户说明.md`
 
 至少写清：
 
@@ -281,10 +280,10 @@ tasks 是最容易“看起来完整，实际上不可实施”的地方。
 进一步可引入 “OpenSpec x spec-kit 融合版” 分解方式：
 
 - `Setup`
-- `Foundational / Blocking`
+- `Blocking`
 - `Slice A`
 - `Slice B`
-- `Polish / Cross-Cutting`
+- `Reconciliation`
 
 每个 `Slice` 都应写：
 
@@ -408,7 +407,7 @@ archive 前建议确认：
 1. `openspec/config.yaml` 的写法框架
 2. `openspec/schemas/<project-schema>/`
 3. `openspec/QUALITY-GATE.md`
-4. `openspec/CHANGE-WORKING-AGREEMENT.md`
+4. `openspec/用户说明.md`
 5. `openspec/ARCHIVE-CHECKLIST.md`
 6. `skills/openspec-propose/SKILL.md`
 7. `skills/README.md`
@@ -438,7 +437,7 @@ archive 前建议确认：
 1. 先写 `openspec/config.yaml`
 2. 再建 custom schema
 3. 再落 `QUALITY-GATE.md`
-4. 再落 `CHANGE-WORKING-AGREEMENT.md`
+4. 再落 `用户说明.md`
 5. 再落 `ARCHIVE-CHECKLIST.md`
 6. 再用 `skills/openspec-propose/SKILL.md` 覆盖目标项目原有的 `propose` skill
 7. 再覆盖 `skills/openspec-apply-change/SKILL.md`，并写入对应 TDD 约束

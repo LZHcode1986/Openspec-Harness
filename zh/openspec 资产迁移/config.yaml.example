@@ -22,7 +22,7 @@ rules:
   proposal:
     - <提案阶段的硬性要求 1>
     - <提案阶段的硬性要求 2>
-    - <提案阶段的硬性要求 3>
+    - <提案阶段的硬性要求 3，例如 proofability check>
   specs:
     - <规范阶段的硬性要求 1>
     - <规范阶段的硬性要求 2>
@@ -31,10 +31,10 @@ rules:
     - <设计阶段的硬性要求 2>
   tasks:
     - <任务阶段的硬性要求 1>
-    - <任务阶段的硬性要求 2>
+    - <任务阶段的硬性要求 2，例如 tasks readiness check>
   implementation:
     - <实施阶段的硬性要求 1>
-    - <实施阶段的硬性要求 2>
+    - <实施阶段的硬性要求 2，例如 implementation done check>
     - <编写或改动代码前默认先执行 test-driven-development>
 
 traceability:

@@ -74,7 +74,7 @@
 | 方法论主文档 | [zh/openspec根据项目个性化方法论.md](zh/openspec根据项目个性化方法论.md) | 核心方法说明 |
 | 迁移包说明 | [zh/openspec 资产迁移/README.md](zh/openspec 资产迁移/README.md) | 迁移资产怎么用 |
 | 质量门禁 | [zh/openspec 资产迁移/QUALITY-GATE.md](zh/openspec 资产迁移/QUALITY-GATE.md) | 提案就绪检查 |
-| 工作协议 | [zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md](zh/openspec 资产迁移/CHANGE-WORKING-AGREEMENT.md) | 变更工作规则 |
+| 用户说明 | [zh/openspec 资产迁移/用户说明.md](zh/openspec 资产迁移/用户说明.md) | 给用户看的变更使用说明 |
 | 归档清单 | [zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md](zh/openspec 资产迁移/ARCHIVE-CHECKLIST.md) | 归档后正规化检查 |
 | schema 示例 | [zh/openspec 资产迁移/schemas/project-schema/README.md](zh/openspec 资产迁移/schemas/project-schema/README.md) | 项目 schema 骨架 |
 | Skills 导览 | [skills/README.md](../skills/README.md) | skill 角色与配置顺序 |

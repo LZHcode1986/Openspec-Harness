@@ -1,28 +1,19 @@
-# Post-Archive Normalization Checklist
+# Archive Safety Checklist
 
-After `archive`, immediately normalize the main spec so the archive result does not pollute the spec library.
+After `archive`, only perform archive safety wrap-up. Do not use this document to discover unfinished work.
 
-## 1. Structural integrity
+## 1. Delta sync
 
-- [ ] Does the archived `spec.md` still have the correct title?
-- [ ] Does it contain a standalone `## Purpose` section?
-- [ ] Does it contain a standalone `## Requirements` section?
+- [ ] Does the delta spec need to be synced back into the main spec library?
+- [ ] Has the sync scope and target file been confirmed?
 
-## 2. Remove delta semantics
+## 2. Naming and directory safety
 
-- [ ] Does the main spec still contain `## ADDED Requirements`, `## MODIFIED Requirements`, or similar delta headings?
-- [ ] Do requirement descriptions still use delta-style wording such as "this change updates..."?
+- [ ] Is the archive directory safe?
+- [ ] Will the naming avoid overwriting existing formal specs?
 
-## 3. Remove placeholders
+## 3. Main spec wrap-up
 
-- [ ] Is `Purpose` still placeholder text?
-- [ ] Do `Requirements` still contain unfilled template placeholders?
-
-## 4. Independent readability
-
-- [ ] Can the merged main spec describe the current system behavior without referring back to the archived change?
-
-## 5. Validation
-
-- [ ] Has the project-specific `openspec validate --all --strict` or an equivalent validation command passed?
+- [ ] Can the main spec be normalized safely?
+- [ ] Will archive avoid degrading the main spec?
 

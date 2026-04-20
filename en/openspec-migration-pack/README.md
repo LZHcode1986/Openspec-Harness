@@ -9,7 +9,7 @@ It is intended to be copied into another project and then tailored to that proje
 1. Before any configuration work, default to `test-driven-development` and do not ask whether it is required.
 2. Use `config.yaml.example` as the English placeholder set.
 3. Copy the schema skeleton from `schemas/project-schema/`.
-4. Adopt the project-level gate documents.
+4. Adopt the project-level gate documents and user guide.
 5. Replace the target project's existing `propose` skill with `../../skills/openspec-propose/SKILL.md`.
 6. Replace the target project's existing `apply` skill with `../../skills/openspec-apply-change/SKILL.md`.
 7. Then check whether the target project already has `test-driven-development`; if not, configure `../../skills/test-driven-development/SKILL.md` into the OpenSpec skills directory.
@@ -19,7 +19,7 @@ It is intended to be copied into another project and then tailored to that proje
 1. `config.yaml.example`
 2. `schemas/project-schema/`
 3. `QUALITY-GATE.md`
-4. `CHANGE-WORKING-AGREEMENT.md`
+4. `USER-GUIDE.md`
 5. `ARCHIVE-CHECKLIST.md`
 6. `../../skills/openspec-propose/SKILL.md`
 7. `../../skills/openspec-apply-change/SKILL.md`
@@ -35,8 +35,8 @@ It is intended to be copied into another project and then tailored to that proje
 
 - `README.md`: English overview
 - `QUALITY-GATE.md`: readiness gate
-- `CHANGE-WORKING-AGREEMENT.md`: active change rules
-- `ARCHIVE-CHECKLIST.md`: archive normalization checklist
+- `USER-GUIDE.md`: user-facing change guidance
+- `ARCHIVE-CHECKLIST.md`: archive safety checklist
 - `config.yaml.example`: project context example
 - `schemas/project-schema/`: schema and template skeleton
 - `../../skills/openspec-propose/SKILL.md`: primary migration source for the `propose` workflow

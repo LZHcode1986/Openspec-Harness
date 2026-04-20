@@ -2,6 +2,10 @@
 
 <!-- Background, current state, and design boundary. -->
 
+## Proofability Anchor
+
+<!-- Describe the real entry point, authority source of truth, false-positive definition, and final proof method. -->
+
 ## Goals and Non-goals
 
 **Goals:**
@@ -40,4 +44,5 @@
 - [ ] The design clearly states persistence impact
 - [ ] The design clearly states API / contract impact
 - [ ] The design clearly states the authority boundary
+- [ ] The design clearly states the proofability anchor
 

@@ -1,35 +1,36 @@
 # Proposed `propose` Redesign
 
-This document explains how to upgrade OpenSpec `propose` from a coverage check into a unified readiness gate.
+This document explains how to upgrade OpenSpec `propose` from repeated coverage checks into a proofability-first planning flow.
 
 ## Goal
 
-- Make `propose` perform the final go / no-go decision before `apply`.
-- Keep coverage, implementability, and archive safety in one flow.
+- Make `propose` complete `proofability check` before `design`.
+- Keep the real entry point, user path, authority source, false-completion definition, and proof method explicit.
 - Prevent proposal, design, specs, and tasks from drifting apart.
 
 ## Recommended changes
 
-1. Add a unified readiness gate at the end of `propose`.
-2. Make the gate check the following in a single pass:
-   - scope and non-goals
-   - risks and acceptance criteria
-   - architecture authority consistency
-   - state transition, persistence, and contract impact
-   - task granularity, file scope, and verification commands
-   - archive safety
-3. Treat `QUALITY-GATE.md` as the single source of truth for the gate.
-4. Make the `propose` output state clearly show:
+1. Run `proofability check` immediately after `proposal.md`.
+2. The check should confirm:
+   - real entry point
+   - user action order
+   - authority source
+   - explicit non-completion evidence
+   - final validation method
+3. Do not keep proposal coverage or design coverage as separate gates.
+4. Run `tasks readiness check` after `tasks.md` is written to confirm apply readiness.
+5. Make the `propose` output state clearly show:
    - what is already satisfied
-   - what blocks entry into `apply`
    - what must be written back into proposal / design / specs / tasks
 
 ## Recommended execution order
 
 1. Read `config.yaml`
-2. Read proposal / design / specs / tasks
-3. Run the unified readiness gate
-4. Enter `apply` only after the gate passes
+2. Read proposal
+3. Run `proofability check`
+4. Continue with design / specs / tasks
+5. Run `tasks readiness check`
+6. Enter `apply` only after the gate passes
 
 ## What to replace during migration
 

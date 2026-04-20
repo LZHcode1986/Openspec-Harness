@@ -20,12 +20,13 @@
 
 ## Task Order
 
-<!-- Keep the five-stage structure: Setup, Foundational / Blocking, Slice A, Slice B, Polish / Cross-Cutting. -->
+<!-- Keep the five-stage structure: Setup, Blocking, Slice A, Slice B, Reconciliation. -->
 
 ### Implementation Constraints
 
 - When entering `apply`, execute `test-driven-development` first and follow `RED -> GREEN -> REFACTOR`.
 - `tasks.md` is only for scope breakdown and progress tracking; do not repeat the full TDD details here.
+- If the change is `interactive`, the first item in `Blocking` must be `Proof Task`.
 
 ## 1. Setup
 
@@ -38,7 +39,7 @@
   - **Files:** <file-paths>
   - **Verification:** <verification-command>
 
-## 2. Foundational / Blocking
+## 2. Blocking
 
 <!-- Shared prerequisites for all slices; do not proceed before these are complete. -->
 
@@ -77,7 +78,7 @@
   - **Files:** <file-paths>
   - **Verification:** <verification-command>
 
-## 5. Polish / Cross-Cutting
+## 5. Reconciliation
 
 <!-- Wrap-up items, cross-cutting governance, docs, regression, compatibility, observability, etc. -->
 
@@ -90,7 +91,7 @@
 <!-- Unified checks before entering apply. -->
 - [ ] File scope is explicit
 - [ ] MVP scope is explicit
-- [ ] Foundational / Blocking tasks are separated
+- [ ] Blocking tasks are separated
 - [ ] Every slice has a slice goal
 - [ ] Every slice has independent acceptance criteria
 - [ ] Parallel opportunities are marked

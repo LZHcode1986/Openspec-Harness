@@ -29,7 +29,7 @@ The common failure modes are:
 
 - Project context is defined first: boundaries, authority sources, canonical objects, and state machines
 - Schema is used to encode project constraints into templates and generated structure
-- A unified readiness gate decides whether a proposal can enter `apply`
+- A proofability / tasks-readiness / implementation-done gate decides whether a proposal can enter `apply`
 - Active Change rules require implementation discoveries to be written back into documents
 - Archive checks prevent the main spec from degrading into leftover change deltas
 - Proposal, design, and tasks each have a clearer responsibility
@@ -77,7 +77,7 @@ When adapting this workflow to another project:
 | Main methodology | [en/OpenSpec-Workflow-Customization-Methodology.md](en/OpenSpec-Workflow-Customization-Methodology.md) | Core methodology |
 | Migration pack overview | [en/openspec-migration-pack/README.md](en/openspec-migration-pack/README.md) | How to reuse the assets |
 | Quality gate | [en/openspec-migration-pack/QUALITY-GATE.md](en/openspec-migration-pack/QUALITY-GATE.md) | Proposal readiness check |
-| Working agreement | [en/openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md](en/openspec-migration-pack/CHANGE-WORKING-AGREEMENT.md) | Change discipline |
+| User guide | [en/openspec-migration-pack/USER-GUIDE.md](en/openspec-migration-pack/USER-GUIDE.md) | User-facing change guidance |
 | Archive checklist | [en/openspec-migration-pack/ARCHIVE-CHECKLIST.md](en/openspec-migration-pack/ARCHIVE-CHECKLIST.md) | Post-archive normalization |
 | Schema example | [en/openspec-migration-pack/schemas/project-schema/README.md](en/openspec-migration-pack/schemas/project-schema/README.md) | Project schema skeleton |
 | Skills guide | [skills/README.md](skills/README.md) | Skill roles and configuration order |

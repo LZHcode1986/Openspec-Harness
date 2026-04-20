@@ -11,6 +11,7 @@
 
 补充说明：
 - 把默认的 `test-driven-development` 入口约束写进 `apply.instruction`，不要把完整 TDD 流程压进 `propose` 或 `tasks` 模板正文。
+- `tasks.md` 采用 `Setup -> Blocking -> Slice A -> Slice B -> Reconciliation` 结构；如果是 `interactive` change，`Blocking` 第一项必须是 `Proof Task`。
 
 迁移原则：
 - 保留结构，不复制本项目业务名词

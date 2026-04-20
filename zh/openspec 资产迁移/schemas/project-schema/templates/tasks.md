@@ -20,12 +20,13 @@
 
 ## 任务顺序
 
-<!-- 固定五段：Setup、Foundational / Blocking、Slice A、Slice B、Polish / Cross-Cutting。 -->
+<!-- 固定五段：Setup、Blocking、Slice A、Slice B、Reconciliation。 -->
 
 ### 实施约束
 
 - 进入 `apply` 后，先执行 `test-driven-development` 并遵循 `RED -> GREEN -> REFACTOR`。
 - `tasks.md` 只承担范围拆分与进度跟踪，不在此处重复展开完整 TDD 细节。
+- 若 change 被分类为 `interactive`，`Blocking` 第一项必须是 `Proof Task`。
 
 ## 1. 准备阶段
 
@@ -38,7 +39,7 @@
   - **文件 (Files):** <file-paths>
   - **验证命令 (Verification):** <verification-command>
 
-## 2. 基础 / 阻塞项
+## 2. 阻塞项
 
 <!-- 所有切片共享的前置阻塞项；未完成前不得进入后续切片。 -->
 
@@ -77,9 +78,9 @@
   - **文件 (Files):** <file-paths>
   - **验证命令 (Verification):** <verification-command>
 
-## 5. 收尾 / 跨切片项
+## 5. 对齐 / 收尾项
 
-<!-- 收尾项、跨切片治理项、文档、回归、兼容性、观测性等。 -->
+<!-- 对齐任务、跨切片治理项、文档、回归、兼容性、观测性等。 -->
 
 - [ ] 5.1 <task-description>
   - **文件 (Files):** <file-paths>
@@ -90,7 +91,7 @@
 <!-- 进入 apply 前的统一检查。 -->
 - [ ] 文件范围已明确
 - [ ] 已明确 MVP 建议范围
-- [ ] 已单列 Foundational / Blocking 任务
+- [ ] 已单列 Blocking 任务
 - [ ] 每个 Slice 都包含切片目标
 - [ ] 每个 Slice 都包含独立验收标准
 - [ ] 已标出 Parallel Opportunities

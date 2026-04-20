@@ -139,10 +139,9 @@ Add a project-level gate document such as:
 
 Recommended checks:
 
-- coverage completeness
-- authority consistency
-- implementability
-- archive safety
+- proofability check
+- tasks readiness check
+- implementation done check
 
 ### Step 5: Lock the `propose` flow through `skills/openspec-propose/SKILL.md`
 
@@ -153,11 +152,11 @@ This step is not complete until the target project's existing `propose` skill ha
 Recommended internal order:
 
 1. source decomposition
-2. proposal coverage check
-3. design coverage check
+2. proofability check
+3. design
 4. specs and tasks generation
-5. final traceability review
-6. final readiness gate
+5. tasks readiness check
+6. implementation done check
 
 Migration rule:
 
@@ -167,9 +166,9 @@ Migration rule:
 
 ### Step 6: Restore active change discipline
 
-Keep a separate working agreement, for example:
+Keep a separate user guide, for example:
 
-- `openspec/CHANGE-WORKING-AGREEMENT.md`
+- `openspec/USER-GUIDE.md`
 
 At minimum, define:
 
@@ -250,7 +249,7 @@ Tasks should be granular enough that the implementer does not need to guess.
 Recommended contents:
 
 - explicit file scope
-- blocking and foundational tasks
+- blocking tasks
 - slice definitions
 - independent acceptance criteria per slice
 - verification command per task
@@ -272,7 +271,7 @@ If you want the smallest useful version of this methodology, keep only:
 - the main spec library
 - the custom schema
 - the quality gate
-- the working agreement
+- the user guide
 - the archive checklist
 - `skills/openspec-propose/SKILL.md`
 - `skills/README.md`

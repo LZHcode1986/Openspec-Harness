@@ -1,6 +1,6 @@
 name: project-schema
 version: 1
-description: <项目名称> 的 OpenSpec 工作流 - proposal -> design -> specs -> tasks，并在 apply 前执行统一就绪门禁
+description: <项目名称> 的 OpenSpec 工作流 - proposal -> proofability check -> design -> specs -> tasks，并在 apply 前执行统一就绪门禁
 
 artifacts:
   - id: proposal
@@ -11,12 +11,13 @@ artifacts:
       生成提案文档，说明这个变更为什么需要做。
 
       提案必须使用中文，并且必须对齐本项目的 `config.yaml`。
-      提案必须覆盖：范围、非目标、风险、验收标准、受影响对象、状态迁移影响、验证命令。
+      提案必须覆盖：最小闭环、范围、非目标、风险、验收标准、受影响对象、状态迁移影响、验证命令。
 
       重要：
       - 先研究已有规范，再填写 Capabilities。
       - 提案是设计、规范和任务的合同。
-      - 提案必须能通过统一就绪门禁。
+      - 提案完成后必须先做 proofability check。
+      - 提案不再单独承担 proposal coverage gate。
     requires: []
   - id: design
     generates: design.md
@@ -30,7 +31,7 @@ artifacts:
 
       重要：
       - 设计必须覆盖提案中的所有非延期项。
-      - 设计必须能通过统一就绪门禁。
+      - 设计不再单独承担 design coverage gate。
     requires:
       - proposal
   - id: specs
@@ -58,7 +59,7 @@ artifacts:
     instruction: >
       生成任务清单，将实施工作拆成可验证步骤。
 
-            Setup -> Foundational / Blocking -> Slice A -> Slice B -> Polish / Cross-Cutting。
+      Setup -> Blocking -> Slice A -> Slice B -> Reconciliation。
 
       任务必须包含：
       - MVP 范围
@@ -73,7 +74,8 @@ artifacts:
       - 任务必须使用中文。
       - 每个任务都要有文件范围和验证命令。
       - 任务粒度必须足够清晰。
-      - 任务必须能通过统一就绪门禁。
+      - `interactive` change 的 `Blocking` 第一项必须是 `Proof Task`。
+      - 任务写完后必须做 tasks readiness check。
     requires:
       - specs
       - design
@@ -86,4 +88,7 @@ apply:
     进入实施前，先读取 change 产物和项目自己的实施规范。
     编写或改动代码前默认先执行 `test-driven-development`，再推进后续实现。
     OpenSpec apply 不替代项目原有的编码、测试、交付规则。
-    按任务推进，逐步打勾完成；如果遇到阻塞或需要澄清，先暂停再继续。
+    按 change 类型分支推进：
+    - `standard`：按 tasks 顺序推进
+    - `interactive`：先完成 `Blocking` 中的 `Proof Task`，再推进后续切片
+    完成后必须执行 `implementation done check`，再考虑进入 archive。

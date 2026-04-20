@@ -12,7 +12,7 @@ If stock OpenSpec is a generic planning framework, this workflow is a project-cu
 | --- | --- | --- |
 | Primary focus | Generic planning and spec flow | Project-specific adaptation and constraint enforcement |
 | Customization point | Mostly templates and workflow usage | Config, schema, gate, and document hierarchy |
-| Readiness check | Structural validation plus workflow judgment | Centralized readiness gate with project rules |
+| Readiness check | Structural validation plus workflow judgment | Proofability, tasks readiness, and implementation done checks |
 | Main spec behavior | Can drift toward change-delta language | Should remain a stable source of truth |
 | Archive role | Close the change | Close the change and normalize the main spec |
 | Implementation boundary | Often implicit | Explicitly separated from planning artifacts |
@@ -22,7 +22,10 @@ If stock OpenSpec is a generic planning framework, this workflow is a project-cu
 
 - a project context block in configuration
 - a custom schema per project
-- a unified readiness gate
+- proofability-first planning
+- a user guide for change discipline
+- a tasks readiness gate
+- an implementation done check
 - an active change discipline
 - an archive normalization checklist
 - clearer separation between planning and implementation

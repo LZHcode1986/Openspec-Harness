@@ -23,6 +23,10 @@ State how the user enters, what actions they perform, what feedback they see, an
 ## Acceptance Criteria
 <!-- Write verifiable pass / fail criteria. At least 3 concrete criteria are recommended. -->
 
+- The real entry point and full user loop must be explicit.
+- A failure condition must be explicit, and "can start but cannot be played" must not count as done.
+- Acceptance criteria must be decomposable into `tasks.md`.
+
 ## Non-goals
 <!-- Explicitly state what will not be done to prevent scope drift. -->
 

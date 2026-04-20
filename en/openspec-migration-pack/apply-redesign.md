@@ -1,20 +1,23 @@
 # Proposed `apply` Redesign
 
-This document explains how to upgrade OpenSpec `apply` from "implement tasks directly" into "follow the schema-driven implementation flow first, then execute tasks".
+This document explains how to upgrade OpenSpec `apply` from "implement tasks directly" into a proof-first branch flow driven by the schema.
 
 ## Goal
 
 - Make `apply` actually honor the dynamic `apply.instruction` from the schema.
 - Enter `test-driven-development` before implementation and execute `RED -> GREEN -> REFACTOR` before coding.
 - Keep `tasks.md` focused on scope and progress while `apply` controls the execution order.
+- For `interactive` changes, complete the `Blocking` section's first `Proof Task` before later slice work.
 
 ## Recommended changes
 
 1. After `openspec instructions apply --change "<name>" --json`, read the dynamic instruction.
 2. Read `test-driven-development` first and only then start coding.
 3. Do not treat `tasks.md` as the only source of order; it should track slices, scope, and checkboxes.
-4. Only mark tasks done after the corresponding TDD step has been completed and verified.
-5. Guardrails should explicitly forbid skipping `RED -> GREEN -> REFACTOR`.
+4. For `standard` changes, follow tasks in order.
+5. For `interactive` changes, complete the first `Proof Task` before later slice work.
+6. Only mark tasks done after the corresponding TDD step has been completed and verified.
+7. Guardrails should explicitly forbid skipping `RED -> GREEN -> REFACTOR`.
 
 ## Recommended execution order
 
