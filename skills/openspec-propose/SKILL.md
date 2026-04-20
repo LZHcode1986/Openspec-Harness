@@ -22,7 +22,7 @@ When ready to implement, run /opsx:apply
 
 **Input**: The user's request should include a change name (kebab-case) OR a description of what they want to build. It may also include one or more source files that the proposal must be decomposed from.
 
-If the request explicitly says `according to <file-path-list>, start task decomposition` or `按照 <文件路径列表> 开始做任务分解`, then:
+If the request explicitly says `according to <file-path-list>, start task decomposition`, then:
 - `<file-path-list>` means the source file or files that define the decomposition input for this change
 - those files may be one file or multiple files
 - those files are input references, not output targets, unless the user separately asks to edit them
@@ -80,18 +80,16 @@ If the request explicitly says `according to <file-path-list>, start task decomp
 5. **Create artifacts in sequence until apply-ready**
 
    Use the task-planning tool available in the environment (for example `update_plan`; if a checklist tool exists, use it) to track progress through the artifacts.
-   The progress list MUST explicitly include these coverage-check milestones in order:
+   The progress list MUST explicitly include these gate milestones in order:
    - source decomposition complete
    - `proposal.md` drafted
-   - proposal coverage check complete
+   - proofability check complete
    - `design.md` drafted
-   - design coverage check complete
    - `specs/*` drafted
    - `tasks.md` drafted
-   - final traceability review complete
-   - final readiness gate complete
+   - tasks readiness check complete
 
-   **IMPORTANT**: coverage checks and readiness checks are in-process gates, not end-of-flow clean-up work. Do not postpone them until after all artifacts are written.
+   **IMPORTANT**: gate checks are in-process blockers, not end-of-flow clean-up work. Do not postpone them until after all artifacts are written.
 
    Loop through artifacts in dependency order (artifacts with no pending dependencies first):
 
@@ -115,50 +113,39 @@ If the request explicitly says `according to <file-path-list>, start task decomp
 
       Artifact-specific workflow:
       - `proposal.md`: write the change intent, scope, capability slices, risks, and rationale from the decomposition result
-      - Immediately after `proposal.md`, run **Proposal Coverage Check** before writing `design.md`
+      - Immediately after `proposal.md`, run **Proofability Check** before writing `design.md`
       - `design.md`: write the implementation structure, interfaces, sequencing, and validation strategy for every non-deferred proposal item
-      - Immediately after `design.md`, run **Design Coverage Check** before writing `specs/*` or `tasks.md`
       - `specs/*` and `tasks.md`: derive them only from the validated proposal/design pair
-      - `tasks.md` 必须遵循 OpenSpec x spec-kit 融合结构：Setup -> Foundational / Blocking -> Slice A -> Slice B -> Polish / Cross-Cutting
-      - `tasks.md` 必须包含 MVP 范围、依赖关系、并行机会、切片目标、独立验收标准
-      - 每个任务必须保持 `1.1 / 1.2` 风格，并支持 `[P]` 与 `[Slice-X]` 标签
-      - Immediately after `specs/*` + `tasks.md`, run **Final Traceability Review**
-      - Immediately after Final Traceability Review, run **Final Readiness Gate** using `openspec/QUALITY-GATE.md` before declaring the change ready
+      - `tasks.md` must follow the OpenSpec x spec-kit blended structure: Setup -> Blocking -> Slice A -> Slice B -> Reconciliation
+      - `tasks.md` must include MVP scope, dependencies, parallel opportunities, slice goals, and independent acceptance criteria
+      - Each task must preserve the `1.1 / 1.2` style and support `[P]` and `[Slice-X]` tags
+      - If the current change is `interactive`, the first item in `Blocking` in `tasks.md` must be `Proof Task`
+      - Immediately after `specs/*` + `tasks.md`, run **Tasks Readiness Check** using `openspec/QUALITY-GATE.md` before declaring the change ready
 
-      Required coverage-gate enforcement:
-      - **Proposal Coverage Check** (BLOCKS design.md)
-        - BEFORE writing design.md, extract every requirement/constraint from source file(s)
-        - For each item, mark status: `covered` (proposal addresses it), `deferred` (explicitly postponed), `out_of_scope` (explicitly excluded), or `conflict` (contradicts another requirement)
-        - Output the full coverage table in the conversation
-        - If any item is unmapped or ambiguous: update proposal.md to cover it, then re-check
-        - DO NOT proceed to design.md until every source item has an explicit status
-      - **Design Coverage Check** (BLOCKS specs/* and tasks.md)
-        - BEFORE writing specs or tasks, verify every non-deferred proposal item has a corresponding design decision
-        - Verify no design decision contradicts source file(s)
-        - Output the full coverage table in the conversation
-        - If any proposal item lacks design coverage: update design.md, then re-check
-        - DO NOT proceed to specs/tasks until all non-deferred items are covered
-      - **Final Traceability Review** (BLOCKS declaring apply-ready)
-        - AFTER writing specs/* and tasks.md, verify the full chain: source files -> proposal -> design -> specs -> tasks
-        - Output the full traceability table in the conversation
-        - If any gap exists: update the deficient artifact (proposal/design/specs/tasks), then re-check
-        - DO NOT report apply-ready status until the chain is complete with zero unmapped items
-      - **Final Readiness Gate** (BLOCKS declaring apply-ready)
-        - AFTER Final Traceability Review passes, read `openspec/QUALITY-GATE.md`
-        - Evaluate the change against the four gate dimensions: coverage completeness, authority consistency, implementability, archive safety
-        - Output the readiness checklist result in the conversation
-        - If any item fails: update the deficient artifact and re-run the gate
-        - DO NOT report apply-ready status until Final Readiness Gate passes
+      Required gate enforcement:
+      - **Proofability Check** (BLOCKS design.md)
+        - BEFORE writing design.md, verify proposal has a real-entry minimal loop, user action order, authority source, explicit non-evidence, and a proof method
+        - If the change is `interactive`, verify the proposal states `can start but cannot be interacted with = failure`
+        - Summarize the check result in the conversation
+        - If any item is missing: update proposal.md, then re-check
+        - DO NOT proceed to design.md until proofability is explicit
+      - **Tasks Readiness Check** (BLOCKS declaring apply-ready)
+        - AFTER writing specs/* and tasks.md, read `openspec/QUALITY-GATE.md`
+        - Verify proposal -> design -> specs -> tasks still describes one closure loop
+        - Verify tasks are executable, include verification commands, and if `interactive`, front-load a `Proof Task`
+        - Summarize the readiness result in the conversation
+        - If any item fails: update the deficient artifact and re-run the check
+        - DO NOT report apply-ready status until Tasks Readiness Check passes
 
-      任务分解要求：
-      - 先写 `Setup` 任务，用于上下文准备和基础脚手架
-      - 再写 `Foundational / Blocking` 任务，用于放置必须先完成的共享前置项
-      - 按能力切片拆分实现，每个切片都必须可以独立验收
-      - 每个切片都要写 `切片目标` 和 `独立验收标准`
-      - 最后补 `Polish / Cross-Cutting` 任务，用于收尾、文档、兼容性、回归和可观测性工作
-      - 可并行任务标记 `[P]`
-      - 切片归属标记 `[Slice-A]`、`[Slice-B]` 或同类标签
-      - 每条任务都要写明文件范围和验证命令
+      Task decomposition requirements:
+      - Write `Setup` tasks first for context preparation and basic scaffolding
+      - Then write `Blocking` tasks for shared prerequisites that must be completed first; if the change is `interactive`, the first item must be `Proof Task`
+      - Split implementation by capability slice, and each slice must be independently verifiable
+      - Each slice must include a `slice goal` and `independent acceptance criteria`
+      - Finish with `Reconciliation` tasks for wrap-up, documentation, compatibility, regression, and alignment work
+      - Mark parallelizable tasks with `[P]`
+      - Mark slice ownership with `[Slice-A]`, `[Slice-B]`, or similar tags
+      - Every task must specify file scope and a verification command
 
    b. **Continue until all `applyRequires` artifacts are complete**
       - After creating each artifact, re-run `openspec status --change "<name>" --json`
@@ -176,7 +163,7 @@ If the request explicitly says `according to <file-path-list>, start task decomp
 
 **Output**
 
-After completing all artifacts and finishing Final Traceability Review plus Final Readiness Gate, summarize:
+After completing all artifacts and finishing Tasks Readiness Check, summarize:
 - Change name and location
 - List of artifacts created with brief descriptions
 - What's ready: "All artifacts created! Ready for implementation."
@@ -194,30 +181,23 @@ After completing all artifacts and finishing Final Traceability Review plus Fina
   - These guide what you write, but should never appear in the output
 - Keep the workflow fixed when decomposition files are provided:
   - source files -> decomposition
-  - `proposal.md` -> proposal coverage check
-  - `design.md` -> design coverage check
+  - `proposal.md` -> proofability check
+  - `design.md`
   - `specs/*` + `tasks.md`
-  - final traceability review
-  - final readiness gate via `openspec/QUALITY-GATE.md`
+  - tasks readiness check via `openspec/QUALITY-GATE.md`
 
-- If you produce any process task list / plan / checklist while executing this skill, you MUST include the three coverage-gate tasks and the final readiness gate explicitly:
-  - proposal coverage check
-  - design coverage check
-  - final traceability review
-  - final readiness gate
+- If you produce any process task list / plan / checklist while executing this skill, you MUST include these gate tasks explicitly:
+  - proofability check
+  - tasks readiness check
 
 **Guardrails**
 - Create ALL artifacts needed for implementation (as defined by schema's `apply.requires`)
 - Always read dependency artifacts before creating a new one
 - Do not skip decomposition when the user explicitly anchors the change to one or more files
-- Do not skip the intermediate coverage checks between proposal and design
-- Do not defer Proposal Coverage Check until after `design.md`
-- Do not defer Design Coverage Check until after `specs/*` or `tasks.md`
-- Do not defer Final Traceability Review until after you have already declared the change ready
-- Do not skip Final Readiness Gate after Final Traceability Review
+- Do not skip `proofability check` after `proposal.md`
+- Do not defer `tasks readiness check` until after you have already declared the change ready
 - Do not treat the listed source files as optional reference material
-- Do not declare the change ready if any source requirement is still unmapped, ambiguous, or in conflict without being explicitly called out
-- Do not declare the change ready if `openspec/QUALITY-GATE.md` has unresolved failures
+- Do not declare the change ready if `openspec/QUALITY-GATE.md` has unresolved readiness failures
 - If context is critically unclear, ask the user - but prefer making reasonable decisions to keep momentum
 - If a change with that name already exists, ask if user wants to continue it or create a new one
 - Verify each artifact file exists after writing before proceeding to next

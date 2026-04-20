@@ -54,11 +54,12 @@ Implement tasks from an OpenSpec change.
    Read the dynamic `instruction` returned by `openspec instructions apply`.
 
    - You MUST follow the required implementation workflow before implementation starts.
-   - For this repository, that means reading and entering `test-driven-development` before any task execution begins.
+   - For this repository, that means reading and entering `Tdd workflow` (`tdd-workflow`) before any task execution begins.
+   - If the change is classified as `interactive`, you MUST complete the `Blocking` section's first `Proof Task` before any later slice work begins.
    - Treat `tasks.md` as scope and progress tracking; it does not override the required
      implementation order from the apply instruction.
-   - Read the `test-driven-development` skill before writing code.
-   - Execute implementation in `RED -> GREEN -> REFACTOR` order.
+   - Read the `Tdd workflow` (`tdd-workflow`) skill before writing code.
+   - Execute implementation in `Step 0-> Step 7` order.
    - Do not skip `RED -> GREEN -> REFACTOR`.
    - Only mark the related task complete after the required TDD step is actually verified.
 
@@ -82,7 +83,8 @@ Implement tasks from an OpenSpec change.
    For each pending task:
    - Show which task is being worked on
    - Follow the apply-stage workflow before or during implementation
-     (for example, complete the relevant `test-driven-development` step before moving to the next coding step)
+     (for example, complete the relevant `Tdd workflow` (`tdd-workflow`) step before moving to the next coding step)
+   - If the change is `interactive`, enforce `Proof Task -> remaining Blocking -> Slice work -> Reconciliation`
    - Make the code changes required
    - Keep changes minimal and focused
    - Mark task complete in the tasks file: `- [ ]` → `- [x]`
@@ -94,7 +96,16 @@ Implement tasks from an OpenSpec change.
    - Error or blocker encountered → report and wait for guidance
    - User interrupts
 
-8. **On completion or pause, show status**
+8. **Run implementation done check**
+
+   After all implementation tasks are done:
+   - Read `openspec/QUALITY-GATE.md`
+   - Run the `Implementation Done Check`
+   - Confirm the declared verification commands were actually executed
+   - If the change is `interactive`, confirm the proof used a real entry path instead of internal direct calls
+   - Report failures before suggesting archive
+
+9. **On completion or pause, show status**
 
    Display:
    - Tasks completed this session
@@ -130,7 +141,7 @@ Working on task 4/7: <task description>
 - [x] Task 2
 ...
 
-All tasks complete! Ready to archive this change.
+All tasks complete and `Implementation Done Check` passed. Ready to archive this change.
 ```
 
 **Output On Pause (Issue Encountered)**
@@ -157,13 +168,15 @@ What would you like to do?
 - Keep going through tasks until done or blocked
 - Always honor the dynamic apply instruction before implementing tasks
 - Always read context files before starting (from the apply instructions output)
-- If the schema or project rules require `test-driven-development`, read it and follow `RED -> GREEN -> REFACTOR`
+- If the schema or project rules require `tdd-workflow`, read it and follow `RED -> GREEN -> REFACTOR`
   before declaring implementation complete
+- If the change is `interactive`, do not skip the first `Proof Task`
 - If task is ambiguous, pause and ask before implementing
 - If implementation reveals issues, pause and suggest artifact updates
 - Keep code changes minimal and scoped to each task
 - Update task checkbox immediately after completing each task
 - Do not skip `RED -> GREEN -> REFACTOR` when TDD is required
+- Do not suggest archive before `Implementation Done Check` is complete
 - Pause on errors, blockers, or unclear requirements - don't guess
 - Use contextFiles from CLI output, don't assume specific file names
 
