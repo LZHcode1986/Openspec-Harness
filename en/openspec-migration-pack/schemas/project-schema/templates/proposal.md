@@ -1,47 +1,54 @@
-# Why and Mapping
-
+## Why
+<!-- Remediation mapping (reason and mapping) -->
 <!-- Explain why this change is needed and what problem, requirement, or architecture goal it maps to. -->
 
-## Change Content
+## Minimum Closed Loop
+<!--
+Describe the minimum closed loop that makes this change valid using a real entry point / real user path.
+Do not only state modules, controllers, or scripts exist.
+State how the user enters, what actions they perform, what feedback they see, and what result they get.
+-->
 
+## What Changes
+<!-- Change content -->
 <!-- Describe what will change. Be specific about capability, object, behavior, or constraint. -->
 
-## Acceptance Criteria
+### In Scope
+- [specific change item 1]
+- [specific change item 2]
 
-<!-- Write verifiable pass / fail criteria. -->
+### Out of Scope
+- [items not included in this change]
+
+## Acceptance Criteria
+<!-- Write verifiable pass / fail criteria. At least 3 concrete criteria are recommended. -->
 
 ## Non-goals
-
 <!-- Explicitly state what will not be done to prevent scope drift. -->
 
 ## Risks
-
-<!-- List known risks and mitigations. -->
+<!-- Describe known risks and mitigations. -->
 
 ## Affected Objects
-
-<!-- List impacted modules, files, interfaces, objects, or systems. -->
+<!-- Impacted modules, files, interfaces, objects, or systems. -->
 
 ## State Transition Impact
-
 <!-- If this involves a state machine or lifecycle flow, describe the impact here. -->
 
 ## Capability List
 
 ### New Capabilities
-<!-- Each new capability generates one spec file. -->
+<!-- New capabilities. Generate one spec file per capability. -->
 - `<capability-name>`: <short description>
 
 ### Modified Capabilities
-<!-- Fill this section when an existing capability changes. Each capability needs a delta spec file. -->
-- `<existing-capability-name>`: <description of the requirement change>
+<!-- Fill when changing existing capabilities. Each capability needs one delta spec file. -->
+- `<existing-capability-name>`: <description of requirement changes>
 
 ## Verification Commands
-
-<!-- List the commands that verify the proposal and later artifacts. -->
+<!-- List commands used to verify this proposal and later artifacts. -->
 
 ## Readiness Gate
-
 - [ ] Aligned with architecture authority
 - [ ] Scope, non-goals, risks, and acceptance criteria are listed
 - [ ] Affected objects, interfaces, and state transitions are explicit

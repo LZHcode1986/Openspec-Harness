@@ -1,17 +1,11 @@
-## [ADDED] Requirements（新增）
+## Purpose
+[在这里简要描述该功能点的核心目标和背景。要求不少于 50 字符以避免校验警告。]
 
-### Requirement: <requirement-name>
-<!-- 需求描述。这里不要写本项目专有名词。 -->
+## ADDED Requirements
 
-#### Scenario: <scenario-name>
-- **WHEN** <condition>
-- **THEN** <expected outcome>
+### Requirement: [明确的需求陈述]
+[描述需求细节。必须使用 MUST / SHALL / MUST NOT 关键字。]
 
-## [MODIFIED] Requirements（修改）
-
-### Requirement: <requirement-name>
-<!-- 需求描述。这里不要写本项目专有名词。 -->
-
-#### Scenario: <scenario-name>
-- **WHEN** <condition>
-- **THEN** <expected outcome>
+#### Scenario: [描述场景名称]
+- **WHEN** [前提条件]
+- **THEN** [预期结果]

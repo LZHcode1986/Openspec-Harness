@@ -1,18 +1,11 @@
-## [ADDED] Requirements
+## Purpose
+[Briefly describe the core objective and context of this capability. Keep it at least 50 characters to avoid validation warnings.]
 
-### Requirement: <requirement-name>
-<!-- Requirement description. Do not use project-specific names here. -->
+## ADDED Requirements
 
-#### Scenario: <scenario-name>
-- **WHEN** <condition>
-- **THEN** <expected outcome>
+### Requirement: [Clear requirement statement]
+[Describe requirement details. MUST use MUST / SHALL / MUST NOT keywords.]
 
-## [MODIFIED] Requirements 
-
-### Requirement: <requirement-name>
-<!-- Requirement description. Do not use project-specific names here. -->
-
-#### Scenario: <scenario-name>
-- **WHEN** <condition>
-- **THEN** <expected outcome>
-
+#### Scenario: [Scenario name]
+- **WHEN** [precondition]
+- **THEN** [expected outcome]
