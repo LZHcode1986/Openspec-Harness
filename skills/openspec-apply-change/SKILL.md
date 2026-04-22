@@ -56,6 +56,7 @@ Implement tasks from an OpenSpec change.
    - You MUST follow the required implementation workflow before implementation starts.
    - For this repository, that means reading and entering `Tdd workflow` (`tdd-workflow`) before any task execution begins.
    - If the change is classified as `interactive`, you MUST complete the `Blocking` section's first `Proof Task` before any later slice work begins.
+   - If `tasks.md` defines explicit `Slice A` or `Slice B` verifier gates, you MUST invoke the independent `verifier` sub-agent at those boundaries and wait for an explicit `PASS` or `FAIL`.
    - Treat `tasks.md` as scope and progress tracking; it does not override the required
      implementation order from the apply instruction.
    - Read the `Tdd workflow` (`tdd-workflow`) skill before writing code.
@@ -85,6 +86,7 @@ Implement tasks from an OpenSpec change.
    - Follow the apply-stage workflow before or during implementation
      (for example, complete the relevant `Tdd workflow` (`tdd-workflow`) step before moving to the next coding step)
    - If the change is `interactive`, enforce `Proof Task -> remaining Blocking -> Slice work -> Reconciliation`
+   - If the change defines verifier gates, enforce `Slice A -> Slice A verifier -> Slice B -> Slice B verifier -> Reconciliation` at the relevant boundaries
    - Make the code changes required
    - Keep changes minimal and focused
    - Mark task complete in the tasks file: `- [ ]` → `- [x]`
@@ -102,6 +104,7 @@ Implement tasks from an OpenSpec change.
    - Read `openspec/QUALITY-GATE.md`
    - Run the `Implementation Done Check`
    - Confirm the declared verification commands were actually executed
+   - Confirm any required `verifier` gates were actually executed by an independent verifier sub-agent and reached `PASS`
    - If the change is `interactive`, confirm the proof used a real entry path instead of internal direct calls
    - Report failures before suggesting archive
 
@@ -171,6 +174,7 @@ What would you like to do?
 - If the schema or project rules require `tdd-workflow`, read it and follow `RED -> GREEN -> REFACTOR`
   before declaring implementation complete
 - If the change is `interactive`, do not skip the first `Proof Task`
+- If `tasks.md` defines verifier gates, do not replace them with self-review; use the independent `verifier` sub-agent
 - If task is ambiguous, pause and ask before implementing
 - If implementation reveals issues, pause and suggest artifact updates
 - Keep code changes minimal and scoped to each task

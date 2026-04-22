@@ -27,6 +27,8 @@
 - 进入 `apply` 后，先执行 `test-driven-development` 并遵循 `RED -> GREEN -> REFACTOR`。
 - `tasks.md` 只承担范围拆分与进度跟踪，不在此处重复展开完整 TDD 细节。
 - 若 change 被分类为 `interactive`，`Blocking` 第一项必须是 `Proof Task`。
+- 若 `tasks.md` 显式定义了 `Slice A` 或 `Slice B` 的 `verifier` gate，执行时必须真正调用对应的 `verifier` 子代理。
+- `Slice A verifier` 与 `Slice B verifier` 必须分别写清校验范围、检查内容和 `PASS/FAIL` gate 条件。
 
 ## 1. 准备阶段
 
@@ -63,6 +65,11 @@
 - [ ] 3.2 [P] [Slice-A] <task-description>
   - **文件 (Files):** <file-paths>
   - **验证命令 (Verification):** <verification-command>
+- [ ] 3.3 [Slice-A] <Slice A verifier>
+  - **文件 (Files):** <change-artifacts, Slice A implementation, Slice A tests, verification results>
+  - **验证命令 (Verification):** 独立 `verifier` 子代理校验
+  - **校验范围 (Inspection Scope):** <Slice A change artifacts + related implementation + related tests + validation results>
+  - **PASS/FAIL Gate:** <conditions for pass/fail>
 
 ## 4. 切片 B：<slice-name>
 
@@ -77,6 +84,11 @@
 - [ ] 4.1 [Slice-B] <task-description>
   - **文件 (Files):** <file-paths>
   - **验证命令 (Verification):** <verification-command>
+- [ ] 4.2 [Slice-B] <Slice B verifier>
+  - **文件 (Files):** <change-artifacts, Slice B implementation, Slice B tests, verification results>
+  - **验证命令 (Verification):** 独立 `verifier` 子代理校验
+  - **校验范围 (Inspection Scope):** <Slice B change artifacts + related implementation + related tests + validation results>
+  - **PASS/FAIL Gate:** <conditions for pass/fail>
 
 ## 5. 对齐 / 收尾项
 
@@ -96,6 +108,10 @@
 - [ ] 每个 Slice 都包含独立验收标准
 - [ ] 已标出 Parallel Opportunities
 - [ ] 任务顺序逻辑连贯
+- [ ] `Slice A` / `Slice B` 已显式包含 `verifier` 子代理独立校验任务
+- [ ] 每个 `verifier` 校验任务都写清了校验范围与 `PASS/FAIL` 门禁
+- [ ] `Slice A verifier` 必须在进入 `Slice B` 前通过
+- [ ] `Slice B verifier` 必须在进入 `Reconciliation` 前通过
 - [ ] 每步任务都有对应的验证命令
 - [ ] 任务条目保留 `1.1 / 1.2` 风格并支持 `[P]` 与 `[Slice-X]` 标签
 - [ ] 任务粒度达到“实现者无需再猜”的级别

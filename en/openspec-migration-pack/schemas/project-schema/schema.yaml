@@ -67,6 +67,9 @@ artifacts:
       - parallel opportunities
       - slice goals
       - independent acceptance criteria
+      - `Slice A` must end with an explicit `verifier` sub-agent check, and `Slice B` must end with one too.
+      - Each `verifier` task must state the inspection scope, what the verifier must check, and the `PASS/FAIL` gate conditions.
+      - Execution order must ensure `Slice A verifier PASS` before `Slice B`, and `Slice B verifier PASS` before `Reconciliation`.
 
       Keep the `1.1 / 1.2` style for each task, and support `[P]` and `[Slice-X]` tags.
 
@@ -88,7 +91,12 @@ apply:
     Before implementation, read the change artifacts and the project's own implementation rules.
     Require `test-driven-development` before any code is written or modified.
     OpenSpec apply does not replace the project's original coding, testing, or delivery rules.
+    If `tasks.md` explicitly defines `Slice A` or `Slice B` verifier gates, you must actually invoke the independent `verifier` sub-agent.
+    The `verifier` must independently read the change artifacts, related implementation, related tests, and verification results, and must not inherit the main agent's spoken conclusions.
     Proceed task by task, checking items off as you go.
     For `standard` changes, follow tasks in order.
     For `interactive` changes, finish the `Blocking` section's first `Proof Task` before later slice work.
+    When verifier gates exist, enforce:
+    - `Slice A verifier PASS` before `Slice B`
+    - `Slice B verifier PASS` before `Reconciliation`
     After all tasks are done, run `implementation done check` before considering archive.
